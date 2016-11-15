@@ -2,3 +2,7 @@
 *.iml
 .vscode/
 .vs/
+
+
+# Node
+node_modules/
