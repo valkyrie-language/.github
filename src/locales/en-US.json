@@ -1,0 +1,28 @@
+{
+    "home": {
+        "title": "Valkyrie Language",
+        "subtitle": "An elegant, efficient, and safe programming language",
+        "getStarted": "Get Started",
+        "features": {
+            "title": "Features",
+            "safety": {
+                "title": "Memory Safety",
+                "description": "Zero-cost abstractions with compile-time memory safety checks"
+            },
+            "performance": {
+                "title": "High Performance",
+                "description": "Near-native execution speed with excellent concurrency support"
+            },
+            "modern": {
+                "title": "Modern Syntax",
+                "description": "Intuitive syntax design with powerful type system"
+            }
+        }
+    },
+    "playground": {
+        "title": "Online Playground",
+        "run": "Run",
+        "share": "Share",
+        "examples": "Examples"
+    }
+}

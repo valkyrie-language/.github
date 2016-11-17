@@ -1,0 +1,28 @@
+{
+    "home": {
+        "title": "Valkyrie Language",
+        "subtitle": "一个优雅、高效、安全的编程语言",
+        "getStarted": "开始使用",
+        "features": {
+            "title": "特性",
+            "safety": {
+                "title": "内存安全",
+                "description": "零成本抽象，编译时内存安全检查"
+            },
+            "performance": {
+                "title": "高性能",
+                "description": "接近原生的执行效率，优秀的并发支持"
+            },
+            "modern": {
+                "title": "现代语法",
+                "description": "直观的语法设计，强大的类型系统"
+            }
+        }
+    },
+    "playground": {
+        "title": "在线编程",
+        "run": "运行",
+        "share": "分享",
+        "examples": "示例"
+    }
+}
