@@ -1,11 +1,13 @@
 <script lang="ts" setup>
 import {RouterView} from 'vue-router'
 import {useI18n} from 'vue-i18n'
+import TopBar from './components/TopBar.vue'
 
 const {t} = useI18n()
 </script>
 
 <template>
+  <TopBar />
   <RouterView/>
 </template>
 
