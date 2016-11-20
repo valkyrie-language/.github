@@ -2,6 +2,7 @@
 import {RouterView} from 'vue-router'
 import {useI18n} from 'vue-i18n'
 import TopBar from './components/TopBar.vue'
+import './style/_variable.scss'
 
 const {t} = useI18n()
 </script>
@@ -12,11 +13,13 @@ const {t} = useI18n()
 </template>
 
 <style lang="scss">
+@import './style/_variable.scss';
+
 :root {
-  --primary-color: #6200ea;
-  --secondary-color: #b388ff;
-  --background-color: #f5f5f5;
-  --text-color: #333;
+  --primary-color: #{$primary-color};
+  --secondary-color: #{$secondary-color};
+  --background-color: #{$background-color};
+  --text-color: #{$text-primary};
 }
 
 body {
