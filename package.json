@@ -20,6 +20,9 @@
     },
     "packageManager": "pnpm@9.15.0",
     "dependencies": {
+        "@vscode/codicons": "^0.0.36",
+        "monaco-editor": "^0.52.2",
+        "split.js": "^1.6.5",
         "vite": "^6.2.1",
         "vite-plugin-monaco-editor-esm": "^2.0.2"
     }

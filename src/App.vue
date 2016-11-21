@@ -1,16 +1,29 @@
-<script lang="ts" setup>
-import {RouterView} from 'vue-router'
-import {useI18n} from 'vue-i18n'
-import TopBar from './components/TopBar.vue'
-import './style/_variable.scss'
+<template>
+  <div class="app">
+    <template v-if="!isPlayground">
+      <TopBar/>
+      <router-view/>
+      <Footer/>
+    </template>
+    <template v-else>
+      <router-view/>
+    </template>
+  </div>
+</template>
 
+<script setup lang="ts">
+import TopBar from './components/TopBar.vue'
+import Footer from './components/Footer.vue'
+import './style/_variable.scss'
+import {useI18n} from 'vue-i18n'
+import { useRoute } from 'vue-router'
+import { computed } from 'vue'
+
+const route = useRoute()
+const isPlayground = computed(() => route.path === '/playground')
 const {t} = useI18n()
 </script>
 
-<template>
-  <TopBar />
-  <RouterView/>
-</template>
 
 <style lang="scss">
 @import './style/_variable.scss';
@@ -33,5 +46,7 @@ body {
 
 #app {
   min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
 </style>

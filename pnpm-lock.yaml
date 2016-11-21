@@ -8,6 +8,15 @@ importers:
 
   .:
     dependencies:
+      '@vscode/codicons':
+        specifier: ^0.0.36
+        version: 0.0.36
+      monaco-editor:
+        specifier: ^0.52.2
+        version: 0.52.2
+      split.js:
+        specifier: ^1.6.5
+        version: 1.6.5
       vite:
         specifier: ^6.2.1
         version: 6.2.1(@types/node@22.13.10)(sass@1.85.1)(yaml@2.7.0)
@@ -616,6 +625,9 @@ packages:
   '@volar/typescript@2.4.12':
     resolution: {integrity: sha512-HJB73OTJDgPc80K30wxi3if4fSsZZAOScbj2fcicMuOPoOkcf9NNAINb33o+DzhBdF9xTKC1gnPmIRDous5S0g==}
 
+  '@vscode/codicons@0.0.36':
+    resolution: {integrity: sha512-wsNOvNMMJ2BY8rC2N2MNBG7yOowV3ov8KlvUE/AiVUlHKTfWsw3OgAOQduX7h0Un6GssKD3aoTVH+TF3DSQwKQ==}
+
   '@vue/compiler-core@3.5.13':
     resolution: {integrity: sha512-oOdAkwqUfW1WqpwSYJce06wvt6HljgY3fGeM9NcVA1HaYOij3mZG9Rkysn0OHuyUAGMbEbARIpsG+LPVlBJ5/Q==}
 
@@ -1177,6 +1189,9 @@ packages:
 
   space-separated-tokens@2.0.2:
     resolution: {integrity: sha512-PEGlAwrG8yXGXRjW32fGbg66JAlOAwbObuqVoJpv/mRgoWDQfgH1wDPvtzWyUSNAXBGSk8h755YDbbcEy3SH2Q==}
+
+  split.js@1.6.5:
+    resolution: {integrity: sha512-mPTnGCiS/RiuTNsVhCm9De9cCAUsrNFFviRbADdKiiV+Kk8HKp/0fWu7Kr8pi3/yBmsqLFHuXGT9UUZ+CNLwFw==}
 
   stringify-entities@4.0.4:
     resolution: {integrity: sha512-IwfBptatlO+QCJUo19AqvrPNqlVMpW9YEL2LIVY+Rpv2qsjCGxaDLNRgeGsQWJhfItebuJhsGSLjaBbNSQ+ieg==}
@@ -1797,6 +1812,8 @@ snapshots:
       '@volar/language-core': 2.4.12
       path-browserify: 1.0.1
       vscode-uri: 3.1.0
+
+  '@vscode/codicons@0.0.36': {}
 
   '@vue/compiler-core@3.5.13':
     dependencies:
@@ -2428,6 +2445,8 @@ snapshots:
     optional: true
 
   space-separated-tokens@2.0.2: {}
+
+  split.js@1.6.5: {}
 
   stringify-entities@4.0.4:
     dependencies:
