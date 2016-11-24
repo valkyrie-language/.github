@@ -1,6 +1,7 @@
 <script lang="ts" setup>
 import {useI18n} from 'vue-i18n'
 import {useRouter} from 'vue-router'
+import LanguageShow from '@/components/LanguageShow.vue'
 
 const {t} = useI18n()
 const router = useRouter()
@@ -8,17 +9,23 @@ const router = useRouter()
 const goToPlayground = () => {
   router.push('/playground')
 }
+
+const valkyrieCodeExample = `
+micro() { }
+mezzo() { }
+macro() { }
+`
 </script>
 
 <template>
   <div class="home">
-    <header class="hero">
-      <h1>{{ t('home.title') }}</h1>
-      <p class="subtitle">{{ t('home.subtitle') }}</p>
-      <button class="cta-button" @click="goToPlayground">
-        {{ t('home.getStarted') }}
-      </button>
-    </header>
+    <LanguageShow
+      :title="t('home.title')"
+      :subtitle="t('home.subtitle')"
+      :code-example="valkyrieCodeExample"
+      :cta-text="t('home.getStarted')"
+      @cta-click="goToPlayground"
+    />
 
     <section class="features">
       <h2>{{ t('home.features.title') }}</h2>
