@@ -1,15 +1,17 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import { ref, onMounted, onUnmounted } from 'vue'
+import { useRouter } from 'vue-router'
 import ParticleBackground from './ParticleBackground.vue'
+import LanguageExamples from './LanguageExamples.vue'
 
 const { t } = useI18n()
+const router = useRouter()
 
 // 定义组件属性
 interface Props {
   title?: string
   subtitle?: string
-  codeExample?: string
-  codeLanguage?: string
   ctaText?: string
   ctaLink?: string
 }
@@ -17,8 +19,6 @@ interface Props {
 const props = withDefaults(defineProps<Props>(), {
   title: '',
   subtitle: '',
-  codeExample: '',
-  codeLanguage: 'typescript',
   ctaText: '',
   ctaLink: ''
 })
@@ -30,6 +30,29 @@ const emit = defineEmits<{
 const handleCtaClick = () => {
   emit('cta-click')
 }
+
+// 代码示例轮播
+const examples = ref<string[]>([])
+
+// 加载示例代码
+const loadExamples = async () => {
+  const exampleModules = import.meta.glob('../assets/examples/*.valkyrie', { as: 'raw' })
+  const loadedExamples = await Promise.all(
+    Object.entries(exampleModules).map(([_, loader]) => loader())
+  )
+  examples.value = loadedExamples
+}
+
+// 复制到 playground
+const copyToPlayground = () => {
+  const currentExample = examples.value[0]
+  localStorage.setItem('playground-code', currentExample)
+  router.push('/playground')
+}
+
+onMounted(async () => {
+  await loadExamples()
+})
 </script>
 
 <template>
@@ -48,8 +71,13 @@ const handleCtaClick = () => {
           <span class="control red"></span>
           <span class="control yellow"></span>
           <span class="control green"></span>
+          <button class="play-button" @click="copyToPlayground" :title="t('home.tryInPlayground')">
+            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <polygon points="5 3 19 12 5 21 5 3"></polygon>
+            </svg>
+          </button>
         </div>
-        <pre class="code-content"><code>{{ codeExample }}</code></pre>
+        <LanguageExamples :examples="examples" />
       </div>
     </div>
   </div>
@@ -104,6 +132,7 @@ const handleCtaClick = () => {
 
 .code-preview {
   flex: 1;
+  position: relative;
   
   .code-window {
     background-color: #1e1e1e;
@@ -114,6 +143,7 @@ const handleCtaClick = () => {
   
   .window-controls {
     display: flex;
+    align-items: center;
     padding: 10px;
     background-color: #252525;
     
@@ -135,16 +165,21 @@ const handleCtaClick = () => {
         background-color: #27c93f;
       }
     }
-  }
-  
-  .code-content {
-    padding: 1rem;
-    margin: 0;
-    color: #f8f8f2;
-    font-family: 'Fira Code', monospace;
-    font-size: 14px;
-    line-height: 1.5;
-    overflow-x: auto;
+
+    .play-button {
+      margin-left: auto;
+      background: none;
+      border: none;
+      color: #fff;
+      cursor: pointer;
+      padding: 4px;
+      border-radius: 4px;
+      transition: background-color 0.2s;
+
+      &:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
   }
 }
 </style>

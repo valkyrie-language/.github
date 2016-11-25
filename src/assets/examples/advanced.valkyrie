@@ -1,0 +1,10 @@
+// 高级示例
+micro() {
+  type Point = {
+    x: number,
+    y: number
+  }
+  
+  let p: Point = { x: 10, y: 20 }
+  return p.x + p.y
+}

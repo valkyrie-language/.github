@@ -54,38 +54,6 @@ macro() { }
   padding: 2rem;
 }
 
-.hero {
-  text-align: center;
-  padding: 4rem 0;
-
-  h1 {
-    font-size: 3rem;
-    color: var(--primary-color);
-    margin-bottom: 1rem;
-  }
-
-  .subtitle {
-    font-size: 1.5rem;
-    color: var(--text-color);
-    margin-bottom: 2rem;
-  }
-}
-
-.cta-button {
-  background-color: var(--primary-color);
-  color: white;
-  border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 8px;
-  cursor: pointer;
-  transition: background-color 0.3s;
-
-  &:hover {
-    background-color: darken(#6200ea, 10%);
-  }
-}
-
 .features {
   padding: 4rem 0;
 

@@ -1,0 +1,10 @@
+// 模式匹配示例
+micro() {
+  enum Color {
+    Red,
+    Green,
+    Blue
+  }
+  
+  let color = Color.Red
+}
