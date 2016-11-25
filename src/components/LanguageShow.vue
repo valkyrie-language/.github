@@ -1,5 +1,6 @@
 <script setup lang="ts">
 import { useI18n } from 'vue-i18n'
+import ParticleBackground from './ParticleBackground.vue'
 
 const { t } = useI18n()
 
@@ -33,6 +34,7 @@ const handleCtaClick = () => {
 
 <template>
   <div class="language-show">
+    <ParticleBackground />
     <div class="language-info">
       <h1>{{ title || t('home.title') }}</h1>
       <p class="subtitle">{{ subtitle || t('home.subtitle') }}</p>
