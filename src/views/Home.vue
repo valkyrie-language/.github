@@ -24,8 +24,6 @@ macro() { }
       :title="t('home.title')"
       :subtitle="t('home.subtitle')"
       :code-example="valkyrieCodeExample"
-      :cta-text="t('home.getStarted')"
-      @cta-click="goToPlayground"
     />
 
     <LanguageFeatures />

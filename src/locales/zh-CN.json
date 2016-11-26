@@ -17,6 +17,10 @@
                 "title": "现代语法",
                 "description": "直观的语法设计，强大的类型系统"
             }
+        },
+        "show": {
+            "download": "立即下载",
+            "playground": "在线使用"
         }
     },
     "playground": {
