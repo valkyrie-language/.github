@@ -15,6 +15,7 @@ const props = withDefaults(defineProps<Props>(), {
 const currentExampleIndex = ref(0)
 const autoPlayInterval = ref<number | null>(null)
 const highlightedCode = ref('')
+const highlighter = ref<any>(null)
 
 // 切换示例
 const nextExample = () => {
@@ -28,14 +29,11 @@ const prevExample = () => {
     : currentExampleIndex.value - 1
   highlightCode()
 }
-const highlighter = await createHighlighter({
-  themes: ['github-light'],
-  langs: ['typescript'],
-})
+
 // 代码高亮
 const highlightCode = async () => {
-  console.log("代码已高亮")
-  highlightedCode.value = highlighter.codeToHtml(
+  if (!highlighter.value) return
+  highlightedCode.value = highlighter.value.codeToHtml(
     props.examples[currentExampleIndex.value],
     {
       theme: 'github-light',
@@ -59,6 +57,10 @@ const stopAutoPlay = () => {
 }
 
 onMounted(async () => {
+  highlighter.value = await createHighlighter({
+    themes: ['github-light'],
+    langs: ['typescript'],
+  })
   await highlightCode()
   startAutoPlay()
 })
@@ -182,6 +184,7 @@ onUnmounted(() => {
       font-family: 'Fira Code', monospace;
       font-size: 14px;
       line-height: 1.5;
+      background-color: transparent !important;
     }
   }
 }

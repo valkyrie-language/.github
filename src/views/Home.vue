@@ -2,6 +2,7 @@
 import {useI18n} from 'vue-i18n'
 import {useRouter} from 'vue-router'
 import LanguageShow from '@/components/LanguageShow.vue'
+import LanguageFeatures from '@/components/LanguageFeatures.vue'
 
 const {t} = useI18n()
 const router = useRouter()
@@ -27,23 +28,7 @@ macro() { }
       @cta-click="goToPlayground"
     />
 
-    <section class="features">
-      <h2>{{ t('home.features.title') }}</h2>
-      <div class="features-grid">
-        <div class="feature-card">
-          <h3>{{ t('home.features.safety.title') }}</h3>
-          <p>{{ t('home.features.safety.description') }}</p>
-        </div>
-        <div class="feature-card">
-          <h3>{{ t('home.features.performance.title') }}</h3>
-          <p>{{ t('home.features.performance.description') }}</p>
-        </div>
-        <div class="feature-card">
-          <h3>{{ t('home.features.modern.title') }}</h3>
-          <p>{{ t('home.features.modern.description') }}</p>
-        </div>
-      </div>
-    </section>
+    <LanguageFeatures />
   </div>
 </template>
 

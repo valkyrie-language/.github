@@ -14,6 +14,8 @@ interface Props {
   subtitle?: string
   ctaText?: string
   ctaLink?: string
+  playText?: string
+  playLink?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
@@ -63,6 +65,9 @@ onMounted(async () => {
       <p class="subtitle">{{ subtitle || t('home.subtitle') }}</p>
       <button v-if="ctaText" class="cta-button" @click="handleCtaClick">
         {{ ctaText }}
+      </button>
+      <button v-if="playText" class="cta-button" @click="handleCtaClick">
+        {{ playText }}
       </button>
     </div>
     <div class="code-preview">
