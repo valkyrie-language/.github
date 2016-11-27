@@ -2,7 +2,7 @@
 import {useI18n} from 'vue-i18n'
 import {useRouter} from 'vue-router'
 import LanguageShow from '@/components/LanguageShow.vue'
-import LanguageFeatures from '@/components/LanguageFeatures.vue'
+import LanguageFeature from '@/components/LanguageFeature.vue'
 
 const {t} = useI18n()
 const router = useRouter()
@@ -26,7 +26,7 @@ macro() { }
       :code-example="valkyrieCodeExample"
     />
 
-    <LanguageFeatures />
+    <LanguageFeature />
   </div>
 </template>
 

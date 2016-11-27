@@ -1,5 +1,16 @@
+<template>
+  <div class="feature-cell">
+    <div class="feature-icon" v-html="icon"></div>
+    <h3>{{ t(titleKey) }}</h3>
+    <p>{{ t(descriptionKey) }}</p>
+    <a v-if="learnMoreLink" :href="learnMoreLink" class="learn-more-btn">
+      {{ t('common.learnMore') }}
+    </a>
+  </div>
+</template>
+
 <script setup lang="ts">
-import { useI18n } from 'vue-i18n'
+import {useI18n} from 'vue-i18n'
 
 interface Props {
   icon: string
@@ -12,19 +23,8 @@ const props = withDefaults(defineProps<Props>(), {
   learnMoreLink: ''
 })
 
-const { t } = useI18n()
+const {t} = useI18n()
 </script>
-
-<template>
-  <div class="feature-cell">
-    <div class="feature-icon" v-html="icon"></div>
-    <h3>{{ t(titleKey) }}</h3>
-    <p>{{ t(descriptionKey) }}</p>
-    <a v-if="learnMoreLink" :href="learnMoreLink" class="learn-more-btn">
-      {{ t('common.learnMore') }}
-    </a>
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .feature-cell {

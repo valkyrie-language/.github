@@ -24,5 +24,124 @@
         "run": "Run",
         "share": "Share",
         "examples": "Examples"
+    },
+    "document": {
+        "title": "Documentation",
+        "subtitle": "Learn how to use Valkyrie language effectively",
+        "menu": {
+            "gettingStarted": "Getting Started",
+            "installation": "Installation",
+            "quickStart": "Quick Start",
+            "basicConcepts": "Basic Concepts",
+            "language": "Language Guide",
+            "syntax": "Syntax",
+            "typeSystem": "Type System",
+            "functions": "Functions",
+            "advanced": "Advanced Topics",
+            "concurrency": "Concurrency",
+            "memoryManagement": "Memory Management",
+            "errorHandling": "Error Handling"
+        },
+        "sections": {
+            "installation": {
+                "title": "Installation",
+                "description": "Get started with Valkyrie by installing it on your system."
+            },
+            "quickStart": {
+                "title": "Quick Start",
+                "description": "Write your first Valkyrie program and understand the basics."
+            },
+            "basicConcepts": {
+                "title": "Basic Concepts",
+                "description": "Learn about the fundamental concepts in Valkyrie programming language."
+            }
+        }
+    },
+    "download": {
+        "title": "Download",
+        "subtitle": "Get Valkyrie for your platform",
+        "downloadButton": "Download",
+        "latestVersion": "Latest version",
+        "windows": {
+            "description": "Windows installer with all the necessary tools and libraries."
+        },
+        "macos": {
+            "description": "macOS package with compiler and standard library."
+        },
+        "linux": {
+            "description": "Linux binaries compatible with major distributions."
+        },
+        "installationGuide": {
+            "title": "Installation Guide",
+            "windows": "Windows Installation",
+            "downloadExecutable": "Download the executable installer",
+            "runInstaller": "Run the installer",
+            "followPrompts": "Follow the installation prompts"
+        },
+        "packageManagers": {
+            "title": "Package Managers",
+            "description": "Valkyrie is also available through various package managers for easier installation and updates."
+        }
+    },
+    "community": {
+        "title": "Community",
+        "subtitle": "Join the Valkyrie community and contribute to its development",
+        "visitButton": "Visit",
+        "joinButton": "Join",
+        "github": {
+            "description": "Explore the source code, report issues, and contribute to the project."
+        },
+        "discord": {
+            "description": "Join our Discord server to chat with other developers and get help."
+        },
+        "forum": {
+            "title": "Forum",
+            "description": "Discuss Valkyrie language features, share your projects, and get community support."
+        },
+        "contribute": {
+            "title": "How to Contribute",
+            "description": "There are many ways to contribute to the Valkyrie language project.",
+            "code": {
+                "title": "Code Contributions",
+                "description": "Help improve the compiler, standard library, or tools.",
+                "button": "View Issues"
+            },
+            "docs": {
+                "title": "Documentation",
+                "description": "Improve the documentation, write tutorials, or create examples.",
+                "button": "View Docs Repo"
+            },
+            "examples": {
+                "title": "Examples",
+                "description": "Share your Valkyrie projects and code examples with the community.",
+                "button": "View Examples"
+            }
+        },
+        "events": {
+            "title": "Upcoming Events",
+            "description": "Join us at these upcoming events to learn more about Valkyrie.",
+            "registerButton": "Register",
+            "meetup": {
+                "title": "Valkyrie Online Meetup",
+                "description": "Join our monthly online meetup to discuss the latest developments."
+            },
+            "webinar": {
+                "title": "Getting Started with Valkyrie",
+                "description": "A beginner-friendly webinar introducing Valkyrie language features."
+            }
+        }
+    },
+    "common": {
+        "projectName": "Valkyrie",
+        "playground": "Playground",
+        "document": "Documentation",
+        "download": "Download",
+        "community": "Community",
+        "github": "GitHub",
+        "discord": "Discord",
+        "learnMore": "Learn More"
+    },
+    "nav": {
+        "home": "Home"
     }
 }

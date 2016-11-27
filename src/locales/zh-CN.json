@@ -28,5 +28,124 @@
         "run": "运行",
         "share": "分享",
         "examples": "示例"
+    },
+    "document": {
+        "title": "文档",
+        "subtitle": "学习如何有效使用Valkyrie语言",
+        "menu": {
+            "gettingStarted": "入门指南",
+            "installation": "安装",
+            "quickStart": "快速开始",
+            "basicConcepts": "基本概念",
+            "language": "语言指南",
+            "syntax": "语法",
+            "typeSystem": "类型系统",
+            "functions": "函数",
+            "advanced": "高级主题",
+            "concurrency": "并发",
+            "memoryManagement": "内存管理",
+            "errorHandling": "错误处理"
+        },
+        "sections": {
+            "installation": {
+                "title": "安装",
+                "description": "通过在系统上安装Valkyrie开始使用。"
+            },
+            "quickStart": {
+                "title": "快速开始",
+                "description": "编写你的第一个Valkyrie程序并了解基础知识。"
+            },
+            "basicConcepts": {
+                "title": "基本概念",
+                "description": "了解Valkyrie编程语言中的基本概念。"
+            }
+        }
+    },
+    "download": {
+        "title": "下载",
+        "subtitle": "获取适用于你的平台的Valkyrie",
+        "downloadButton": "下载",
+        "latestVersion": "最新版本",
+        "windows": {
+            "description": "Windows安装程序，包含所有必要的工具和库。"
+        },
+        "macos": {
+            "description": "macOS包，包含编译器和标准库。"
+        },
+        "linux": {
+            "description": "与主要发行版兼容的Linux二进制文件。"
+        },
+        "installationGuide": {
+            "title": "安装指南",
+            "windows": "Windows安装",
+            "downloadExecutable": "下载可执行安装程序",
+            "runInstaller": "运行安装程序",
+            "followPrompts": "按照安装提示进行操作"
+        },
+        "packageManagers": {
+            "title": "包管理器",
+            "description": "Valkyrie也可以通过各种包管理器获得，以便更轻松地安装和更新。"
+        }
+    },
+    "community": {
+        "title": "社区",
+        "subtitle": "加入Valkyrie社区并为其发展做出贡献",
+        "visitButton": "访问",
+        "joinButton": "加入",
+        "github": {
+            "description": "探索源代码，报告问题，并为项目做出贡献。"
+        },
+        "discord": {
+            "description": "加入我们的Discord服务器，与其他开发者交流并获取帮助。"
+        },
+        "forum": {
+            "title": "论坛",
+            "description": "讨论Valkyrie语言特性，分享你的项目，并获得社区支持。"
+        },
+        "contribute": {
+            "title": "如何贡献",
+            "description": "有很多方式可以为Valkyrie语言项目做出贡献。",
+            "code": {
+                "title": "代码贡献",
+                "description": "帮助改进编译器、标准库或工具。",
+                "button": "查看问题"
+            },
+            "docs": {
+                "title": "文档",
+                "description": "改进文档，编写教程，或创建示例。",
+                "button": "查看文档仓库"
+            },
+            "examples": {
+                "title": "示例",
+                "description": "与社区分享你的Valkyrie项目和代码示例。",
+                "button": "查看示例"
+            }
+        },
+        "events": {
+            "title": "即将举行的活动",
+            "description": "参加这些即将举行的活动，了解更多关于Valkyrie的信息。",
+            "registerButton": "注册",
+            "meetup": {
+                "title": "Valkyrie在线聚会",
+                "description": "加入我们的月度在线聚会，讨论最新的发展。"
+            },
+            "webinar": {
+                "title": "Valkyrie入门",
+                "description": "一个面向初学者的网络研讨会，介绍Valkyrie语言特性。"
+            }
+        }
+    },
+    "common": {
+        "projectName": "Valkyrie",
+        "playground": "在线编程",
+        "document": "文档",
+        "download": "下载",
+        "community": "社区",
+        "github": "GitHub",
+        "discord": "Discord",
+        "learnMore": "了解更多"
+    },
+    "nav": {
+        "home": "首页"
     }
 }

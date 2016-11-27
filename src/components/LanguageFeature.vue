@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import FeatureCell from './FeatureCell.vue'
+import FeatureCard from './FeatureCard.vue'
 
 const features = [
   {
@@ -36,7 +36,7 @@ const features = [
   <section class="language-features">
     <h2>{{ $t('features.title') }}</h2>
     <div class="features-grid">
-      <FeatureCell
+      <FeatureCard
         v-for="feature in features"
         :key="feature.titleKey"
         v-bind="feature"

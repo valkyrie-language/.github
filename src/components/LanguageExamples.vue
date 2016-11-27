@@ -16,18 +16,34 @@ const currentExampleIndex = ref(0)
 const autoPlayInterval = ref<number | null>(null)
 const highlightedCode = ref('')
 const highlighter = ref<any>(null)
+const isSliding = ref(false)
+const slideDirection = ref('')
 
 // 切换示例
 const nextExample = () => {
-  currentExampleIndex.value = (currentExampleIndex.value + 1) % props.examples.length
-  highlightCode()
+  if (isSliding.value) return
+  isSliding.value = true
+  slideDirection.value = 'left'
+  setTimeout(() => {
+    currentExampleIndex.value = (currentExampleIndex.value + 1) % props.examples.length
+    highlightCode()
+    slideDirection.value = ''
+    isSliding.value = false
+  }, 300)
 }
 
 const prevExample = () => {
-  currentExampleIndex.value = currentExampleIndex.value === 0
-    ? props.examples.length - 1
-    : currentExampleIndex.value - 1
-  highlightCode()
+  if (isSliding.value) return
+  isSliding.value = true
+  slideDirection.value = 'right'
+  setTimeout(() => {
+    currentExampleIndex.value = currentExampleIndex.value === 0
+      ? props.examples.length - 1
+      : currentExampleIndex.value - 1
+    highlightCode()
+    slideDirection.value = ''
+    isSliding.value = false
+  }, 300)
 }
 
 // 代码高亮
@@ -36,7 +52,7 @@ const highlightCode = async () => {
   highlightedCode.value = highlighter.value.codeToHtml(
     props.examples[currentExampleIndex.value],
     {
-      theme: 'github-light',
+      theme: 'vitesse-light',
       lang: 'typescript'
     }
   )
@@ -58,7 +74,7 @@ const stopAutoPlay = () => {
 
 onMounted(async () => {
   highlighter.value = await createHighlighter({
-    themes: ['github-light'],
+    themes: ['vitesse-light'],
     langs: ['typescript'],
   })
   await highlightCode()
@@ -78,7 +94,10 @@ onUnmounted(() => {
         <span class="control yellow"></span>
         <span class="control green"></span>
       </div>
-      <div class="code-content-wrapper">
+      <div class="code-content-wrapper" :class="{
+        'sliding-left': slideDirection === 'left',
+        'sliding-right': slideDirection === 'right'
+      }">
         <button class="nav-button prev" @click="prevExample">&lt;</button>
         <div class="code-content" :style="{ maxHeight: maxHeight }" v-html="highlightedCode"></div>
         <button class="nav-button next" @click="nextExample">&gt;</button>
@@ -96,6 +115,23 @@ onUnmounted(() => {
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .code-content-wrapper {
+    position: relative;
+
+    .code-content {
+      transition: transform 0.3s ease-in-out;
+      transform: translateX(0);
+    }
+
+    &.sliding-left .code-content {
+      transform: translateX(-100%);
+    }
+
+    &.sliding-right .code-content {
+      transform: translateX(100%);
+    }
   }
 
   .window-controls {
