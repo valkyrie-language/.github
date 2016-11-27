@@ -3,7 +3,10 @@
     <div class="left">
       <router-link to="/" class="logo"> {{ t('common.projectName') }}</router-link>
       <router-link to="/">{{ t('nav.home') }}</router-link>
-      <router-link to="/playground">{{ t('nav.playground') }}</router-link>
+      <router-link to="/playground">{{ t('common.playground') }}</router-link>
+      <router-link to="/document">{{ t('common.document') }}</router-link>
+      <router-link to="/download">{{ t('common.download') }}</router-link>
+      <router-link to="/community">{{ t('common.community') }}</router-link>
     </div>
     <div class="right">
       <a

@@ -4,12 +4,14 @@
     <div class="language-info">
       <h1>{{ title || t('home.title') }}</h1>
       <p class="subtitle">{{ subtitle || t('home.subtitle') }}</p>
-      <button class="cta-button" @click="jumpDownload">
-        {{ t('home.show.download') }}
-      </button>
-      <button class="cta-button" @click="jumpPlayground">
-        {{ t('home.show.playground') }}
-      </button>
+      <div class="buttons-container">
+        <button class="cta-button" @click="jumpDownload">
+          {{ t('home.show.download') }}
+        </button>
+        <button class="cta-button" @click="jumpPlayground">
+          {{ t('home.show.playground') }}
+        </button>
+      </div>
     </div>
     <div class="code-preview">
       <div class="code-window">
@@ -21,7 +23,9 @@
             <img :src="PlayIcon" alt="Play"/>
           </button>
         </div>
-        <LanguageExamples :examples="examples"/>
+        <div class="examples-container">
+          <LanguageExamples :examples="examples"/>
+        </div>
       </div>
     </div>
   </div>
@@ -112,6 +116,12 @@ onMounted(async () => {
     margin-bottom: 2rem;
     line-height: 1.6;
   }
+  
+  .buttons-container {
+    display: flex;
+    gap: 1rem;
+    flex-wrap: wrap;
+  }
 }
 
 .cta-button {
@@ -184,6 +194,17 @@ onMounted(async () => {
 
       &:hover {
         background-color: rgba(255, 255, 255, 0.1);
+      }
+    }
+  }
+  
+  .examples-container {
+    :deep(.code-window) {
+      border-radius: 0;
+      box-shadow: none;
+      
+      .window-controls {
+        display: none;
       }
     }
   }
