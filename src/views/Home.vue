@@ -1,8 +1,19 @@
+<template>
+  <div class="home">
+    <TopBar/>
+    <language-introduces/>
+    <language-introduces/>
+    <language-applications/>
+    <Footer/>
+  </div>
+</template>
 <script lang="ts" setup>
 import {useI18n} from 'vue-i18n'
 import {useRouter} from 'vue-router'
-import LanguageShow from '@/components/LanguageShow.vue'
-import LanguageFeature from '@/components/LanguageFeature.vue'
+import LanguageIntroduces from '@/components/LanguageIntroduces.vue'
+import LanguageApplications from '@/components/LanguageApplications.vue'
+import TopBar from "@/components/TopBar.vue";
+import Footer from "@/components/Footer.vue";
 
 const {t} = useI18n()
 const router = useRouter()
@@ -18,17 +29,6 @@ macro() { }
 `
 </script>
 
-<template>
-  <div class="home">
-    <LanguageShow
-      :title="t('home.title')"
-      :subtitle="t('home.subtitle')"
-      :code-example="valkyrieCodeExample"
-    />
-
-    <LanguageFeature />
-  </div>
-</template>
 
 <style lang="scss" scoped>
 .home {

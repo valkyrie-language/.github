@@ -1,5 +1,5 @@
 <script setup lang="ts">
-import { ref, onMounted, onBeforeUnmount } from 'vue'
+import {onBeforeUnmount, onMounted, ref} from 'vue'
 import ApplicationCard from './ApplicationCard.vue'
 
 // 应用场景数据
@@ -109,12 +109,12 @@ const prevSlide = () => {
 const updateSlidePosition = () => {
   const visibleSlides = getVisibleSlidesCount()
   const maxIndex = Math.max(0, applications.length - visibleSlides)
-  
+
   // 确保索引不超出范围
   if (currentIndex.value > maxIndex) {
     currentIndex.value = maxIndex
   }
-  
+
   prevTranslate.value = -currentIndex.value * slideWidth.value
   currentTranslate.value = prevTranslate.value
 }
@@ -136,11 +136,11 @@ const touchStart = (event: TouchEvent | MouseEvent) => {
 
 const touchMove = (event: TouchEvent | MouseEvent) => {
   if (!isDragging.value) return
-  
+
   const currentX = 'touches' in event ? event.touches[0].clientX : event.clientX
   const diff = currentX - startX.value
   currentTranslate.value = prevTranslate.value + diff
-  
+
   animationID.value = requestAnimationFrame(() => {
     if (containerRef.value) {
       containerRef.value.style.transform = `translateX(${currentTranslate.value}px)`
@@ -151,7 +151,7 @@ const touchMove = (event: TouchEvent | MouseEvent) => {
 const touchEnd = () => {
   isDragging.value = false
   const movedBy = currentTranslate.value - prevTranslate.value
-  
+
   // 如果移动距离足够大，则切换到下一张或上一张
   if (movedBy < -100) {
     nextSlide()
@@ -164,14 +164,14 @@ const touchEnd = () => {
       containerRef.value.style.transform = `translateX(${currentTranslate.value}px)`
     }
   }
-  
+
   startAutoplay()
 }
 
 // 窗口大小变化时重新计算
 const handleResize = () => {
   if (!containerRef.value) return
-  
+
   const cardElements = containerRef.value.querySelectorAll('.application-card')
   if (cardElements.length > 0) {
     const firstCard = cardElements[0] as HTMLElement
@@ -181,7 +181,7 @@ const handleResize = () => {
     const marginRight = parseInt(cardStyle.marginRight || '0')
     slideWidth.value = firstCard.offsetWidth + marginLeft + marginRight
   }
-  
+
   updateSlidePosition()
 }
 
@@ -203,14 +203,14 @@ onBeforeUnmount(() => {
 <template>
   <section class="language-applications">
     <h2>{{ $t('applications.title') }}</h2>
-    
+
     <div class="carousel-container">
       <button class="carousel-control prev" @click="prevSlide">
         <span class="arrow">&#10094;</span>
       </button>
-      
+
       <div class="carousel-wrapper">
-        <div 
+        <div
           ref="containerRef"
           class="carousel-slides"
           :style="{ transform: `translateX(${currentTranslate}px)` }"
@@ -222,24 +222,24 @@ onBeforeUnmount(() => {
           @mouseup="touchEnd"
           @mouseleave="touchEnd"
         >
-          <div 
-            v-for="(application, index) in applications" 
+          <div
+            v-for="(application, index) in applications"
             :key="index"
             class="carousel-slide"
           >
-            <ApplicationCard v-bind="application" />
+            <ApplicationCard v-bind="application"/>
           </div>
         </div>
       </div>
-      
+
       <button class="carousel-control next" @click="nextSlide">
         <span class="arrow">&#10095;</span>
       </button>
     </div>
-    
+
     <div class="carousel-indicators">
-      <button 
-        v-for="(_, index) in applications" 
+      <button
+        v-for="(_, index) in applications"
         :key="index"
         class="indicator"
         :class="{ active: index === currentIndex }"
@@ -285,11 +285,11 @@ onBeforeUnmount(() => {
   padding: 0 1rem;
   box-sizing: border-box;
   flex: 1 0 auto;
-  
+
   @media (min-width: 768px) {
     min-width: 33.333%;
   }
-  
+
   @media (min-width: 1024px) {
     min-width: 25%;
   }
@@ -308,21 +308,21 @@ onBeforeUnmount(() => {
   z-index: 10;
   box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
   transition: all 0.3s ease;
-  
+
   &:hover {
     background: white;
     box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
   }
-  
+
   .arrow {
     font-size: 18px;
     color: var(--vt-c-text-1);
   }
-  
+
   &.prev {
     margin-right: 1rem;
   }
-  
+
   &.next {
     margin-left: 1rem;
   }
@@ -333,7 +333,7 @@ onBeforeUnmount(() => {
   justify-content: center;
   margin-top: 2rem;
   gap: 0.5rem;
-  
+
   .indicator {
     width: 10px;
     height: 10px;
@@ -343,7 +343,7 @@ onBeforeUnmount(() => {
     padding: 0;
     cursor: pointer;
     transition: all 0.3s ease;
-    
+
     &.active {
       background: var(--primary-color);
       transform: scale(1.2);

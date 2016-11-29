@@ -2,8 +2,8 @@
   <div class="language-show">
     <ParticleBackground/>
     <div class="language-info">
-      <h1>{{ title || t('home.title') }}</h1>
-      <p class="subtitle">{{ subtitle || t('home.subtitle') }}</p>
+      <h1>{{ t('home.title') }}</h1>
+      <p class="subtitle">{{ t('home.subtitle') }}</p>
       <div class="buttons-container">
         <button class="cta-button" @click="jumpDownload">
           {{ t('home.show.download') }}
@@ -24,7 +24,7 @@
           </button>
         </div>
         <div class="examples-container">
-          <LanguageExamples :examples="examples"/>
+          <IntroduceCode :examples="examples"/>
         </div>
       </div>
     </div>
@@ -36,23 +36,11 @@ import {useI18n} from 'vue-i18n'
 import {onMounted, ref} from 'vue'
 import {useRouter} from 'vue-router'
 import ParticleBackground from './ParticleBackground.vue'
-import LanguageExamples from './LanguageExamples.vue'
+import IntroduceCode from './IntroduceCode.vue'
 import PlayIcon from '../assets/icon/play.svg'
 
 const {t} = useI18n()
 const router = useRouter()
-
-// 定义组件属性
-interface Props {
-  title?: string
-  subtitle?: string
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  title: '',
-  subtitle: '',
-  ctaLink: ''
-})
 
 const jumpDownload = () => {
   window.open('https://github.com/valkyrie-lang/valkyrie/releases/latest', '_blank')
@@ -116,7 +104,7 @@ onMounted(async () => {
     margin-bottom: 2rem;
     line-height: 1.6;
   }
-  
+
   .buttons-container {
     display: flex;
     gap: 1rem;
@@ -145,7 +133,6 @@ onMounted(async () => {
   position: relative;
 
   .code-window {
-    background-color: #1e1e1e;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
@@ -155,7 +142,6 @@ onMounted(async () => {
     display: flex;
     align-items: center;
     padding: 10px;
-    background-color: #252525;
 
     .control {
       width: 12px;
@@ -197,12 +183,12 @@ onMounted(async () => {
       }
     }
   }
-  
+
   .examples-container {
     :deep(.code-window) {
       border-radius: 0;
       box-shadow: none;
-      
+
       .window-controls {
         display: none;
       }

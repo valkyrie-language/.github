@@ -1,13 +1,6 @@
 <template>
   <div class="app">
-    <template v-if="!isPlayground">
-      <TopBar/>
-      <router-view/>
-      <Footer/>
-    </template>
-    <template v-else>
-      <router-view/>
-    </template>
+    <router-view/>
   </div>
 </template>
 

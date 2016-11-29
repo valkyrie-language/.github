@@ -52,7 +52,7 @@ const highlightCode = async () => {
   highlightedCode.value = highlighter.value.codeToHtml(
     props.examples[currentExampleIndex.value],
     {
-      theme: 'vitesse-light',
+      theme: 'github-light',
       lang: 'typescript'
     }
   )
@@ -74,7 +74,7 @@ const stopAutoPlay = () => {
 
 onMounted(async () => {
   highlighter.value = await createHighlighter({
-    themes: ['vitesse-light'],
+    themes: ['github-light'],
     langs: ['typescript'],
   })
   await highlightCode()
