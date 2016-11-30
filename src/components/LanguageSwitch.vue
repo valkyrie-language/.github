@@ -1,7 +1,7 @@
 <template>
   <div class="language-switch">
     <button class="language-button" @click="toggleDropdown" :title="t('common.language')">
-      <span>{{ currentLanguage }}</span>
+      <span>{{ currentLanguage.name }} {{ currentLanguage.icon }}</span>
     </button>
     <div class="language-dropdown" v-if="isOpen" @click="closeDropdown">
       <button
@@ -11,7 +11,7 @@
         :class="{ active: currentLocale === lang.code }"
         @click="switchLanguage(lang.code)"
       >
-        {{ lang.name }}
+        {{ lang.icon }} {{ lang.name }}
       </button>
     </div>
   </div>
@@ -20,42 +20,32 @@
 <script setup lang="ts">
 import {computed, onBeforeUnmount, onMounted, ref} from 'vue'
 import {useI18n} from 'vue-i18n'
+import languageConfig from '../locales/languages.json'
 
 const {
   t,
   locale
 } = useI18n()
 
-const languages = [
-  {
-    code: 'en-US',
-    name: 'English'
-  },
-  {
-    code: 'zh-CN',
-    name: '简体中文'
-  },
-]
+const languages = languageConfig.languages
 
 const isOpen = ref(false)
-const currentLocale = ref(locale.value)
+const currentLocale = ref(languageConfig.defaultLanguage)
 
 const currentLanguage = computed(() => {
   const lang = languages.find(l => l.code === currentLocale.value)
-  return lang ? lang.name : 'English'
+  return lang || languages.find(l => l.code === languageConfig.defaultLanguage)!
 })
 
 const detectLanguage = () => {
   const savedLanguage = localStorage.getItem('language')
-  if (savedLanguage) {
+  if (savedLanguage && languages.some(l => l.code === savedLanguage)) {
     return savedLanguage
   }
 
   const browserLang = navigator.language
-  if (browserLang.startsWith('zh')) {
-    return 'zh-CN'
-  }
-  return 'en-US'
+  const matchedLang = languages.find(l => browserLang.startsWith(l.code.split('-')[0]))
+  return matchedLang ? matchedLang.code : languageConfig.defaultLanguage
 }
 
 const switchLanguage = (lang: string) => {
@@ -104,8 +94,9 @@ onBeforeUnmount(() => {
     display: flex;
     align-items: center;
     justify-content: center;
-    width: 40px;
+    min-width: 40px;
     height: 40px;
+    padding: 0 12px;
     border-radius: 8px;
     background: transparent;
     border: none;
