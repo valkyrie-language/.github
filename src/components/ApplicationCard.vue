@@ -38,6 +38,8 @@ const {t} = useI18n()
   height: 100%;
   display: flex;
   flex-direction: column;
+  width: 280px; /* 设置固定宽度 */
+  margin: 0 auto;
 
   &:hover {
     transform: translateY(-8px);

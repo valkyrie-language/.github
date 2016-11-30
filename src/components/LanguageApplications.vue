@@ -284,14 +284,18 @@ onBeforeUnmount(() => {
   min-width: 300px;
   padding: 0 1rem;
   box-sizing: border-box;
-  flex: 1 0 auto;
+  flex: 0 0 auto; /* 修改为不伸缩 */
 
   @media (min-width: 768px) {
-    min-width: 33.333%;
+    min-width: 50%; /* 平板显示2个 */
   }
 
   @media (min-width: 1024px) {
-    min-width: 25%;
+    min-width: 33.333%; /* 小桌面显示3个 */
+  }
+
+  @media (min-width: 1200px) {
+    min-width: 25%; /* 大桌面显示4个 */
   }
 }
 

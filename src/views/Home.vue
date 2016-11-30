@@ -1,8 +1,8 @@
 <template>
   <div class="home">
     <TopBar/>
-    <language-introduces/>
-    <language-introduces/>
+    <language-introduce/>
+    <language-features/>
     <language-applications/>
     <Footer/>
   </div>
@@ -10,10 +10,11 @@
 <script lang="ts" setup>
 import {useI18n} from 'vue-i18n'
 import {useRouter} from 'vue-router'
-import LanguageIntroduces from '@/components/LanguageIntroduces.vue'
+import LanguageIntroduce from '@/components/LanguageIntroduce.vue'
 import LanguageApplications from '@/components/LanguageApplications.vue'
 import TopBar from "@/components/TopBar.vue";
 import Footer from "@/components/Footer.vue";
+import LanguageFeatures from "@/components/LanguageFeatures.vue";
 
 const {t} = useI18n()
 const router = useRouter()
