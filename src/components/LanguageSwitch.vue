@@ -1,7 +1,7 @@
 <template>
   <div class="language-switch">
     <button class="language-button" @click="toggleDropdown" :title="t('common.language')">
-      <span>{{ currentLanguage.name }} {{ currentLanguage.icon }}</span>
+      <img :src="LanguageIcon" alt="language" class="language-icon" />
     </button>
     <div class="language-dropdown" v-if="isOpen" @click="closeDropdown">
       <button
@@ -11,7 +11,16 @@
         :class="{ active: currentLocale === lang.code }"
         @click="switchLanguage(lang.code)"
       >
-        {{ lang.icon }} {{ lang.name }}
+        <span>{{ lang.name }}</span>
+        <a
+          :href="`https://github.com/valkyrie-language/valkyrie/tree/main/locales/${lang.code}`"
+          target="_blank"
+          rel="noopener noreferrer"
+          class="github-link"
+          @click.stop
+        >
+          <img :src="GithubIcon" alt="GitHub" class="github-icon" />
+        </a>
       </button>
     </div>
   </div>
@@ -20,21 +29,23 @@
 <script setup lang="ts">
 import {computed, onBeforeUnmount, onMounted, ref} from 'vue'
 import {useI18n} from 'vue-i18n'
-import languageConfig from '../locales/languages.json'
+import {LANGUAGE_CONFIG} from '@/api/languages'
+import LanguageIcon from '../assets/icon/language.svg'
+import GithubIcon from '../assets/icon/github.svg'
 
 const {
   t,
   locale
 } = useI18n()
 
-const languages = languageConfig.languages
+const languages = LANGUAGE_CONFIG.languages
 
 const isOpen = ref(false)
-const currentLocale = ref(languageConfig.defaultLanguage)
+const currentLocale = ref(LANGUAGE_CONFIG.defaultLanguage)
 
 const currentLanguage = computed(() => {
   const lang = languages.find(l => l.code === currentLocale.value)
-  return lang || languages.find(l => l.code === languageConfig.defaultLanguage)!
+  return lang || languages.find(l => l.code === LANGUAGE_CONFIG.defaultLanguage)!
 })
 
 const detectLanguage = () => {
@@ -45,7 +56,7 @@ const detectLanguage = () => {
 
   const browserLang = navigator.language
   const matchedLang = languages.find(l => browserLang.startsWith(l.code.split('-')[0]))
-  return matchedLang ? matchedLang.code : languageConfig.defaultLanguage
+  return matchedLang ? matchedLang.code : LANGUAGE_CONFIG.defaultLanguage
 }
 
 const switchLanguage = (lang: string) => {
@@ -104,6 +115,12 @@ onBeforeUnmount(() => {
     cursor: pointer;
     transition: all var(--transition-duration);
 
+    .language-icon {
+      width: 20px;
+      height: 20px;
+      margin-right: 8px;
+    }
+
     &:hover {
       background: rgba(255, 215, 0, 0.1);
     }
@@ -113,23 +130,46 @@ onBeforeUnmount(() => {
     position: absolute;
     top: 100%;
     right: 0;
+    min-width: 180px;
     margin-top: 0.5rem;
     background: var(--surface-color);
     border: 1px solid var(--border-color);
     border-radius: 8px;
-    box-shadow: var(--box-shadow);
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
     z-index: 1000;
 
     .language-option {
-      display: block;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
       width: 100%;
-      padding: 0.5rem 1rem;
+      padding: 0.75rem 1rem;
       border: none;
       background: none;
       color: var(--text-primary);
       text-align: left;
       cursor: pointer;
       transition: background-color var(--transition-duration);
+
+      &:not(:last-child) {
+        border-bottom: 1px solid var(--border-color);
+      }
+
+      .github-link {
+        display: flex;
+        align-items: center;
+        opacity: 0.6;
+        transition: opacity var(--transition-duration);
+
+        .github-icon {
+          width: 16px;
+          height: 16px;
+        }
+
+        &:hover {
+          opacity: 1;
+        }
+      }
 
       &:hover {
         background-color: var(--hover-color);
