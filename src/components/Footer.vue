@@ -1,9 +1,3 @@
-<script setup lang="ts">
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
-</script>
-
 <template>
   <footer class="footer">
     <div class="footer-content">
@@ -33,10 +27,18 @@ const { t } = useI18n()
       </div>
     </div>
     <div class="footer-bottom">
-      <p class="copyright">&copy; {{ new Date().getFullYear() }} Valkyrie Language. {{ t('footer.allRightsReserved') }}</p>
+      <p class="copyright">&copy; {{ new Date().getFullYear() }} Valkyrie Language. {{
+          t('footer.allRightsReserved')
+        }}</p>
     </div>
   </footer>
 </template>
+
+<script setup lang="ts">
+import {useI18n} from 'vue-i18n'
+
+const {t} = useI18n()
+</script>
 
 <style lang="scss" scoped>
 .footer {

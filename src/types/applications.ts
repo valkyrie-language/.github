@@ -5,14 +5,14 @@ import GameIcon from "@/assets/icon/application-game.svg";
 import EmbeddedIcon from "@/assets/icon/application-game.svg";
 import DeepLearning from "@/assets/icon/application-deep-learning.svg";
 
-type Application = {
+export type LanguageApplication = {
     icon: string
     titleKey: string
     descriptionKey: string
     learnMoreLink: string
 }
 
-export const LANGUAGE_APPLICATIONS: Application[] = [
+export const LANGUAGE_APPLICATIONS: LanguageApplication[] = [
     {
         icon: CommandLineIcon,
         titleKey: 'applications.command-line.title',

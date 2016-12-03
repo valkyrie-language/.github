@@ -11,17 +11,9 @@
 
 <script setup lang="ts">
 import {useI18n} from 'vue-i18n'
+import {LanguageApplication} from "@/types/applications";
 
-interface Props {
-  icon: string
-  titleKey: string
-  descriptionKey: string
-  learnMoreLink?: string
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  learnMoreLink: ''
-})
+const props = defineProps<LanguageApplication>()
 
 const {t} = useI18n()
 </script>

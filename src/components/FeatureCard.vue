@@ -11,17 +11,9 @@
 
 <script setup lang="ts">
 import {useI18n} from 'vue-i18n'
+import {LanguageFeature} from "@/types/features";
 
-interface Props {
-  icon: string
-  titleKey: string
-  descriptionKey: string
-  learnMoreLink?: string
-}
-
-const props = withDefaults(defineProps<Props>(), {
-  learnMoreLink: ''
-})
+const props = defineProps<LanguageFeature>()
 
 const {t} = useI18n()
 </script>
