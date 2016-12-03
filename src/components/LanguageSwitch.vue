@@ -118,7 +118,6 @@ onBeforeUnmount(() => {
     .language-icon {
       width: 20px;
       height: 20px;
-      margin-right: 8px;
     }
 
     &:hover {
@@ -172,7 +171,7 @@ onBeforeUnmount(() => {
       }
 
       &:hover {
-        background-color: var(--hover-color);
+        background: var(--hover-color);
       }
 
       &.active {
