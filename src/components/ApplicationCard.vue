@@ -1,6 +1,6 @@
 <template>
   <div class="application-card">
-    <div class="application-icon" v-html="icon"></div>
+    <img class="application-icon" :src="icon" :alt="titleKey"/>
     <h3>{{ t(titleKey) }}</h3>
     <p>{{ t(descriptionKey) }}</p>
     <a v-if="learnMoreLink" :href="learnMoreLink" class="learn-more-btn">

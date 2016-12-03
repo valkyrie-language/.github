@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import {computed, onBeforeUnmount, onMounted, ref} from 'vue'
 import {useI18n} from 'vue-i18n'
-import {LANGUAGE_CONFIG} from '@/api/languages'
+import {LANGUAGE_CONFIG} from '@/types/languages.js'
 import LanguageIcon from '../assets/icon/language.svg'
 import GithubIcon from '../assets/icon/github.svg'
 

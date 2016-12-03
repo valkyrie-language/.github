@@ -1,6 +1,6 @@
 <template>
   <div class="feature-cell">
-    <div class="feature-icon" v-html="icon"></div>
+    <img class="feature-icon" :src="icon" :alt="titleKey"/>
     <h3>{{ t(titleKey) }}</h3>
     <p>{{ t(descriptionKey) }}</p>
     <a v-if="learnMoreLink" :href="learnMoreLink" class="learn-more-btn">

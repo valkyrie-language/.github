@@ -1,64 +1,57 @@
+<template>
+  <section class="language-applications">
+    <h2>{{ $t('applications.title') }}</h2>
+
+    <div class="carousel-container">
+      <button class="carousel-control prev" @click="prevSlide">
+        <span class="arrow">&#10094;</span>
+      </button>
+
+      <div class="carousel-wrapper">
+        <div
+          ref="containerRef"
+          class="carousel-slides"
+          :style="{ transform: `translateX(${currentTranslate}px)` }"
+          @touchstart="touchStart"
+          @touchmove="touchMove"
+          @touchend="touchEnd"
+          @mousedown="touchStart"
+          @mousemove="touchMove"
+          @mouseup="touchEnd"
+          @mouseleave="touchEnd"
+        >
+          <div
+            v-for="(application, index) in LANGUAGE_APPLICATIONS"
+            :key="index"
+            class="carousel-slide"
+          >
+            <application-card v-bind="application"/>
+          </div>
+        </div>
+      </div>
+
+      <button class="carousel-control next" @click="nextSlide">
+        <span class="arrow">&#10095;</span>
+      </button>
+    </div>
+
+    <div class="carousel-indicators">
+      <button
+        v-for="(_, index) in LANGUAGE_APPLICATIONS"
+        :key="index"
+        class="indicator"
+        :class="{ active: index === currentIndex }"
+        @click="currentIndex = index; updateSlidePosition()"
+      ></button>
+    </div>
+  </section>
+</template>
+
 <script setup lang="ts">
 import {onBeforeUnmount, onMounted, ref} from 'vue'
 import ApplicationCard from './ApplicationCard.vue'
+import {LANGUAGE_APPLICATIONS} from "@/types/applications.js";
 
-// 应用场景数据
-const applications = [
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 4h16v16H4V4z" fill="#3B82F6"/>
-      <path d="M8 8h8v8H8V8z" fill="white"/>
-    </svg>`,
-    titleKey: 'applications.serverSide.title',
-    descriptionKey: 'applications.serverSide.description',
-    learnMoreLink: '/docs/server-side'
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z" fill="#10B981"/>
-      <path d="M12 8l4.5 2.25v4.5L12 17l-4.5-2.25v-4.5L12 8z" fill="white"/>
-    </svg>`,
-    titleKey: 'applications.dataProcessing.title',
-    descriptionKey: 'applications.dataProcessing.description',
-    learnMoreLink: '/docs/data-processing'
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="#8B5CF6"/>
-      <path d="M12 7l5 2.5v5L12 17l-5-2.5v-5L12 7z" fill="white"/>
-    </svg>`,
-    titleKey: 'applications.commandLine.title',
-    descriptionKey: 'applications.commandLine.description',
-    learnMoreLink: '/docs/command-line'
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M4 4h16v16H4V4z" fill="#F59E0B"/>
-      <path d="M8 8h8v8H8V8z" fill="white"/>
-    </svg>`,
-    titleKey: 'applications.frontendWeb.title',
-    descriptionKey: 'applications.frontendWeb.description',
-    learnMoreLink: '/docs/frontend-web'
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 3l9 4.5v9L12 21l-9-4.5v-9L12 3z" fill="#EC4899"/>
-      <path d="M12 8l4.5 2.25v4.5L12 17l-4.5-2.25v-4.5L12 8z" fill="white"/>
-    </svg>`,
-    titleKey: 'applications.machineLearning.title',
-    descriptionKey: 'applications.machineLearning.description',
-    learnMoreLink: '/docs/machine-learning'
-  },
-  {
-    icon: `<svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-      <path d="M12 2L2 7v10l10 5 10-5V7L12 2z" fill="#EF4444"/>
-      <path d="M12 7l5 2.5v5L12 17l-5-2.5v-5L12 7z" fill="white"/>
-    </svg>`,
-    titleKey: 'applications.embedded.title',
-    descriptionKey: 'applications.embedded.description',
-    learnMoreLink: '/docs/embedded'
-  }
-]
 
 // 轮播状态
 const currentIndex = ref(0)
@@ -89,7 +82,7 @@ const stopAutoplay = () => {
 
 // 轮播控制
 const nextSlide = () => {
-  if (currentIndex.value >= applications.length - 1) {
+  if (currentIndex.value >= LANGUAGE_APPLICATIONS.length - 1) {
     currentIndex.value = 0
   } else {
     currentIndex.value++
@@ -99,7 +92,7 @@ const nextSlide = () => {
 
 const prevSlide = () => {
   if (currentIndex.value <= 0) {
-    currentIndex.value = applications.length - 1
+    currentIndex.value = LANGUAGE_APPLICATIONS.length - 1
   } else {
     currentIndex.value--
   }
@@ -108,11 +101,11 @@ const prevSlide = () => {
 
 const updateSlidePosition = () => {
   const visibleSlides = getVisibleSlidesCount()
-  const maxIndex = Math.max(0, applications.length - visibleSlides)
+  const maxIndex = Math.max(0, LANGUAGE_APPLICATIONS.length - visibleSlides)
 
-  // 确保索引不超出范围
+  // 确保索引不超出范围，并实现循环滚动
   if (currentIndex.value > maxIndex) {
-    currentIndex.value = maxIndex
+    currentIndex.value = 0
   }
 
   prevTranslate.value = -currentIndex.value * slideWidth.value
@@ -200,54 +193,6 @@ onBeforeUnmount(() => {
 })
 </script>
 
-<template>
-  <section class="language-applications">
-    <h2>{{ $t('applications.title') }}</h2>
-
-    <div class="carousel-container">
-      <button class="carousel-control prev" @click="prevSlide">
-        <span class="arrow">&#10094;</span>
-      </button>
-
-      <div class="carousel-wrapper">
-        <div
-          ref="containerRef"
-          class="carousel-slides"
-          :style="{ transform: `translateX(${currentTranslate}px)` }"
-          @touchstart="touchStart"
-          @touchmove="touchMove"
-          @touchend="touchEnd"
-          @mousedown="touchStart"
-          @mousemove="touchMove"
-          @mouseup="touchEnd"
-          @mouseleave="touchEnd"
-        >
-          <div
-            v-for="(application, index) in applications"
-            :key="index"
-            class="carousel-slide"
-          >
-            <ApplicationCard v-bind="application"/>
-          </div>
-        </div>
-      </div>
-
-      <button class="carousel-control next" @click="nextSlide">
-        <span class="arrow">&#10095;</span>
-      </button>
-    </div>
-
-    <div class="carousel-indicators">
-      <button
-        v-for="(_, index) in applications"
-        :key="index"
-        class="indicator"
-        :class="{ active: index === currentIndex }"
-        @click="currentIndex = index; updateSlidePosition()"
-      ></button>
-    </div>
-  </section>
-</template>
 
 <style lang="scss" scoped>
 .language-applications {

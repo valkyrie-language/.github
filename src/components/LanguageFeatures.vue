@@ -2,8 +2,8 @@
   <section class="language-features">
     <h2>{{ $t('features.title') }}</h2>
     <div class="features-grid">
-      <FeatureCard
-        v-for="feature in features"
+      <feature-card
+        v-for="feature in LANGUAGE_FEATURES"
         :key="feature.titleKey"
         v-bind="feature"
       />
@@ -18,7 +18,14 @@ import LexicalIcon from '../assets/icon/feature-lexical.svg'
 import SafetyIcon from '../assets/icon/feature-safety.svg'
 import PolymorphismIcon from '../assets/icon/feature-polymorphism.svg'
 
-const features = [
+export type LanguageFeature = {
+  icon: string
+  titleKey: string
+  descriptionKey: string
+  learnMoreLink: string
+}
+
+export const LANGUAGE_FEATURES: LanguageFeature[] = [
   {
     icon: LexicalIcon,
     titleKey: 'features.lexicalEffectHandlers.title',
