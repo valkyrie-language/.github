@@ -1,5 +1,13 @@
-<svg width="40" height="40" viewBox="0 0 40 40" fill="none" xmlns="http://www.w3.org/2000/svg">
-  <path d="M20 4L36 14V26L20 36L4 26V14L20 4Z" stroke="#FFD700" stroke-width="2"/>
-  <path d="M20 8L32 15.5V23.5L20 31L8 23.5V15.5L20 8Z" stroke="#FFD700" stroke-width="2"/>
-  <circle cx="20" cy="20" r="4" fill="#FFD700"/>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 800">
+	<defs>
+		<style>.cls-1{fill:#3780ff;}.cls-2{fill:#fcbd05;}.cls-3{fill:none;}</style>
+	</defs>
+	<g id="图层_2" data-name="图层 2">
+		<g id="图层_1-2" data-name="图层 1">
+			<path class="cls-1" d="M800,17H599.75L404,580.08l71.48,203H499Z"/>
+			<path class="cls-2"
+			      d="M404,580.08l-.14.5L275.47,211.29l-144,144L297.71,783H475.47ZM51.86,17H0L14.49,54.28ZM41.11,122.7,146.86,17h-57L25.14,81.64ZM207.94,17H184.87L51.71,150.06l16,41.07,149-149Zm33.22,95.64L226.47,70.3,78.33,218.49l15.93,41.06ZM120.83,327.93,265.66,183.09,251,140.79,104.91,286.91Z"/>
+			<rect class="cls-3" width="800" height="800"/>
+		</g>
+	</g>
 </svg>

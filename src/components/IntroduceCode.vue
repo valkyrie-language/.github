@@ -2,13 +2,8 @@
 import {onMounted, onUnmounted, ref} from 'vue'
 import {createHighlighter} from 'shiki'
 
-type LanguageExample = {
-  title?: string,
-  code: string
-}
-
 interface Props {
-  examples?: LanguageExample[]
+  examples?: string[]
   maxHeight?: string
   title?: string
 }
@@ -57,7 +52,7 @@ const prevExample = () => {
 const highlightCode = async () => {
   if (!highlighter.value) return
   highlightedCode.value = highlighter.value.codeToHtml(
-    props.examples[currentExampleIndex.value].code,
+    props.examples[currentExampleIndex.value],
     {
       theme: 'github-light',
       lang: 'typescript'

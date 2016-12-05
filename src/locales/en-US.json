@@ -143,5 +143,31 @@
     },
     "nav": {
         "home": "Home"
+    },
+    "applications": {
+        "command-line": {
+            "title": "Command-line Tools",
+            "description": "Develop system tools, compilers, and high-performance CLI applications"
+        },
+        "server": {
+            "title": "Server Development",
+            "description": "Build high-concurrency, distributed backend services"
+        },
+        "fullstack": {
+            "title": "Fullstack Development",
+            "description": "Unified language for full-stack development"
+        },
+        "game-development": {
+            "title": "Game Development",
+            "description": "High-performance game engines and real-time rendering systems"
+        },
+        "deep-learning": {
+            "title": "Deep Learning",
+            "description": "Build high-performance neural networks and ML frameworks"
+        },
+        "embedded": {
+            "title": "Embedded Systems",
+            "description": "Develop IoT devices and embedded systems with resource constraints"
+        }
     }
 }

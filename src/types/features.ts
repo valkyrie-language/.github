@@ -1,6 +1,6 @@
-import LexicalIcon from "@/assets/icon/feature-lexical.svg";
-import SafetyIcon from "@/assets/icon/feature-safety.svg";
-import PolymorphismIcon from "@/assets/icon/feature-polymorphism.svg";
+import AlgebraicDataType from "@/assets/icon/feature-lexical.svg";
+import AlgebraicSubType from "@/assets/icon/feature-safety.svg";
+import AlgebraicEffect from "@/assets/icon/feature-polymorphism.svg";
 
 export type LanguageFeature = {
     icon: string
@@ -11,21 +11,21 @@ export type LanguageFeature = {
 
 export const LANGUAGE_FEATURES: LanguageFeature[] = [
     {
-        icon: LexicalIcon,
-        titleKey: 'features.lexicalEffectHandlers.title',
-        descriptionKey: 'features.lexicalEffectHandlers.description',
-        learnMoreLink: '/docs/effect-handlers'
+        icon: AlgebraicDataType,
+        titleKey: 'features.algebraic-data-type.title',
+        descriptionKey: 'features.algebraic-data-type.description',
+        learnMoreLink: '/docs/algebraic-data-type'
     },
     {
-        icon: SafetyIcon,
-        titleKey: 'features.effectSafety.title',
-        descriptionKey: 'features.effectSafety.description',
-        learnMoreLink: '/docs/effect-safety'
+        icon: AlgebraicSubType,
+        titleKey: 'features.algebraic-subtype.title',
+        descriptionKey: 'features.algebraic-subtype.description',
+        learnMoreLink: '/docs/algebraic-subtype'
     },
     {
-        icon: PolymorphismIcon,
-        titleKey: 'features.lightweightPolymorphism.title',
-        descriptionKey: 'features.lightweightPolymorphism.description',
-        learnMoreLink: '/docs/polymorphism'
+        icon: AlgebraicEffect,
+        titleKey: 'features.algebraic-effect.title',
+        descriptionKey: 'features.algebraic-effect.description',
+        learnMoreLink: '/docs/algebraic-effect'
     }
 ]

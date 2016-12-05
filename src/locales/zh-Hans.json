@@ -147,5 +147,31 @@
     },
     "nav": {
         "home": "首页"
+    },
+    "applications": {
+        "command-line": {
+            "title": "命令行工具",
+            "description": "开发系统工具、编译器及高性能CLI应用"
+        },
+        "server": {
+            "title": "服务端开发",
+            "description": "构建高并发、分布式后端服务"
+        },
+        "fullstack": {
+            "title": "全栈开发",
+            "description": "统一语言实现前后端一体化开发"
+        },
+        "game-development": {
+            "title": "游戏开发",
+            "description": "高性能游戏引擎及实时渲染系统开发"
+        },
+        "deep-learning": {
+            "title": "深度学习",
+            "description": "构建高性能神经网络和机器学习框架"
+        },
+        "embedded": {
+            "title": "嵌入式系统",
+            "description": "开发资源受限的物联网设备和嵌入式系统"
+        }
     }
 }

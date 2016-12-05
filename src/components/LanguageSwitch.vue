@@ -29,7 +29,7 @@
 <script setup lang="ts">
 import {computed, onBeforeUnmount, onMounted, ref} from 'vue'
 import {useI18n} from 'vue-i18n'
-import {LANGUAGE_CONFIG} from '@/types/languages.js'
+import {LANGUAGE_CONFIG} from '@/types/languages'
 import LanguageIcon from '../assets/icon/language.svg'
 import GithubIcon from '../assets/icon/github.svg'
 
@@ -118,6 +118,7 @@ onBeforeUnmount(() => {
     .language-icon {
       width: 20px;
       height: 20px;
+      margin-right: 8px;
     }
 
     &:hover {
@@ -171,7 +172,7 @@ onBeforeUnmount(() => {
       }
 
       &:hover {
-        background: var(--hover-color);
+        background-color: var(--hover-color);
       }
 
       &.active {
