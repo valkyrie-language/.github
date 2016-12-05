@@ -2,14 +2,21 @@
 import {onMounted, onUnmounted, ref} from 'vue'
 import {createHighlighter} from 'shiki'
 
+type LanguageExample = {
+  title?: string,
+  code: string
+}
+
 interface Props {
-  examples?: string[]
+  examples?: LanguageExample[]
   maxHeight?: string
+  title?: string
 }
 
 const props = withDefaults(defineProps<Props>(), {
   examples: () => [],
-  maxHeight: '300px'
+  maxHeight: '300px',
+  title: ''
 })
 
 const currentExampleIndex = ref(0)
@@ -50,7 +57,7 @@ const prevExample = () => {
 const highlightCode = async () => {
   if (!highlighter.value) return
   highlightedCode.value = highlighter.value.codeToHtml(
-    props.examples[currentExampleIndex.value],
+    props.examples[currentExampleIndex.value].code,
     {
       theme: 'github-light',
       lang: 'typescript'
@@ -94,6 +101,7 @@ onUnmounted(() => {
         <span class="control yellow"></span>
         <span class="control green"></span>
       </div>
+      <div v-if="title" class="code-title">{{ title }}</div>
       <div class="code-content-wrapper" :class="{
         'sliding-left': slideDirection === 'left',
         'sliding-right': slideDirection === 'right'
@@ -158,6 +166,15 @@ onUnmounted(() => {
         background-color: #27c93f;
       }
     }
+  }
+
+  .code-title {
+    padding: 8px 16px;
+    background-color: #f5f5f5;
+    border-top: 1px solid #e0e0e0;
+    font-size: 14px;
+    color: #333;
+    font-weight: 500;
   }
 
   .code-content-wrapper {
