@@ -1,10 +1,10 @@
 // 主题色变量
-$primary-color: #FFD700; // 金色主色调
-$secondary-color: #FFC107; // 次要金色
-$accent-color: #FFE57F; // 强调色
+$primary-color: #3780ff; // 主色调
+$secondary-color: #5a9bff; // 次要色（由点缀色改为主色系的浅色调）
+$accent-color: #2c6cd9; // 强调色（主色的深色调）
 
 // 背景色
-$background-color: #FFFDF5; // 浅金色背景
+$background-color: #f8f9fc; // 浅蓝灰背景（更符合主色调）
 $surface-color: #FFFFFF; // 表面色
 
 // 文字颜色
@@ -12,8 +12,8 @@ $text-primary: #333333; // 主要文字颜色
 $text-secondary: #666666; // 次要文字颜色
 
 // 边框和分割线
-$border-color: #FFE082; // 金色边框
-$divider-color: #FFF3E0; // 分割线颜色
+$border-color: #e0e7f5; // 浅蓝色边框（与主色系统一）
+$divider-color: #f0f4fa; // 分割线颜色（与主色系统一）
 
 // 状态颜色
 $success-color: #4CAF50;

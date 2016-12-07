@@ -94,8 +94,12 @@ onMounted(async () => {
 
   h1 {
     font-size: 3rem;
-    color: var(--primary-color);
+    background: linear-gradient(45deg, var(--primary-color), var(--secondary-color));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
+    font-weight: 700;
   }
 
   .subtitle {
@@ -114,17 +118,20 @@ onMounted(async () => {
 
 .cta-button {
   background-color: var(--primary-color);
-  color: var(--text-primary);
+  color: white;
   border: none;
   padding: 1rem 2rem;
   font-size: 1.2rem;
   border-radius: 8px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s;
   font-weight: bold;
+  box-shadow: 0 4px 12px rgba(55, 128, 255, 0.25);
 
   &:hover {
-    background-color: darken(#FFD700, 10%);
+    background-color: darken(#3780ff, 10%);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(55, 128, 255, 0.3);
   }
 }
 
@@ -142,6 +149,8 @@ onMounted(async () => {
     display: flex;
     align-items: center;
     padding: 10px;
+    background: linear-gradient(to right, #f8f8f8, #ffffff);
+    border-bottom: 1px solid #eaeaea;
 
     .control {
       width: 12px;

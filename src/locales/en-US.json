@@ -2,34 +2,7 @@
     "home": {
         "title": "Valkyrie Language",
         "subtitle": "An elegant, efficient, and safe programming language",
-        "getStarted": "Get Started",
-        "features": {
-            "title": "Features",
-            "safety": {
-                "title": "Memory Safety",
-                "description": "Zero-cost abstractions with compile-time memory safety checks"
-            },
-            "performance": {
-                "title": "High Performance",
-                "description": "Near-native execution speed with excellent concurrency support"
-            },
-            "modern": {
-                "title": "Modern Syntax",
-                "description": "Intuitive syntax design with powerful type system"
-            },
-            "algebraic-data-type": {
-                "title": "Algebraic Data Types",
-                "description": "Safe type operations through pattern matching"
-            },
-            "algebraic-subtype": {
-                "title": "Algebraic Subtyping",
-                "description": "Verify type constraints at compile time"
-            },
-            "algebraic-effect": {
-                "title": "Algebraic Effects",
-                "description": "Manage program side effects in declarative way"
-            }
-        }
+        "getStarted": "Get Started"
     },
     "playground": {
         "title": "Online Playground",
@@ -155,6 +128,33 @@
     },
     "nav": {
         "home": "Home"
+    },
+    "features": {
+        "title": "Features",
+        "safety": {
+            "title": "Memory Safety",
+            "description": "Zero-cost abstractions with compile-time memory safety checks"
+        },
+        "performance": {
+            "title": "High Performance",
+            "description": "Near-native execution speed with excellent concurrency support"
+        },
+        "modern": {
+            "title": "Modern Syntax",
+            "description": "Intuitive syntax design with powerful type system"
+        },
+        "algebraic-data-type": {
+            "title": "Algebraic Data Types",
+            "description": "Safe type operations through pattern matching"
+        },
+        "algebraic-subtype": {
+            "title": "Algebraic Subtyping",
+            "description": "Verify type constraints at compile time"
+        },
+        "algebraic-effect": {
+            "title": "Algebraic Effects",
+            "description": "Manage program side effects in declarative way"
+        }
     },
     "applications": {
         "command-line": {

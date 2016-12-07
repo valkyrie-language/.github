@@ -53,9 +53,9 @@ const {t} = useI18n()
   justify-content: space-between;
   align-items: center;
   padding: 0.75rem 2rem;
-  background: linear-gradient(to right, var(--background-color), var(--surface-color));
-  border-bottom: 2px solid var(--border-color);
-  box-shadow: var(--box-shadow);
+  background: white;
+  border-bottom: 1px solid rgba(55, 128, 255, 0.1);
+  box-shadow: 0 2px 10px rgba(55, 128, 255, 0.05);
 
   .left {
     display: flex;
@@ -86,6 +86,7 @@ const {t} = useI18n()
         -webkit-background-clip: text;
         background-clip: text;
         -webkit-text-fill-color: transparent;
+        font-weight: 700;
       }
     }
 
@@ -144,7 +145,7 @@ const {t} = useI18n()
       }
 
       &:hover {
-        background: rgba(255, 215, 0, 0.1);
+        background: rgba(55, 128, 255, 0.1);
 
         img {
           transform: scale(1.1);

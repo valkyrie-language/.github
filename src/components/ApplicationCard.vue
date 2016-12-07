@@ -25,7 +25,7 @@ const {t} = useI18n()
   border-radius: 12px;
   padding: 2.5rem 2rem;
   text-align: center;
-  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
+  box-shadow: 0 10px 30px rgba(55, 128, 255, 0.15);
   transition: all 0.3s ease;
   height: 100%;
   display: flex;
@@ -55,7 +55,7 @@ const {t} = useI18n()
   h3 {
     font-size: 1.75rem;
     margin-bottom: 1.25rem;
-    color: var(--vt-c-text-1);
+    color: var(--primary-color);
   }
 
   p {
