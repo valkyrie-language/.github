@@ -16,6 +16,18 @@
             "modern": {
                 "title": "现代语法",
                 "description": "直观的语法设计，强大的类型系统"
+            },
+            "algebraic-data-type": {
+                "title": "代数数据类型",
+                "description": "通过模式匹配实现安全的类型操作"
+            },
+            "algebraic-subtype": {
+                "title": "代数子类型",
+                "description": "在编译期验证类型约束条件"
+            },
+            "algebraic-effect": {
+                "title": "代数效应",
+                "description": "以声明式方式管理程序副作用"
             }
         },
         "show": {

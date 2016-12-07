@@ -16,6 +16,18 @@
             "modern": {
                 "title": "Modern Syntax",
                 "description": "Intuitive syntax design with powerful type system"
+            },
+            "algebraic-data-type": {
+                "title": "Algebraic Data Types",
+                "description": "Safe type operations through pattern matching"
+            },
+            "algebraic-subtype": {
+                "title": "Algebraic Subtyping",
+                "description": "Verify type constraints at compile time"
+            },
+            "algebraic-effect": {
+                "title": "Algebraic Effects",
+                "description": "Manage program side effects in declarative way"
             }
         }
     },

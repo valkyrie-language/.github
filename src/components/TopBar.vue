@@ -14,7 +14,7 @@
       </div>
     </div>
     <div class="right">
-      <LanguageSwitch />
+      <LanguageSwitch/>
       <a
         href="https://github.com/valkyrie-language/valkyrie"
         target="_blank"
