@@ -1,10 +1,5 @@
-<script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
-
-const { t } = useI18n()
-</script>
-
 <template>
+  <TopBar/>
   <div class="download-page">
     <header class="page-header">
       <h1>{{ t('download.title') }}</h1>
@@ -41,13 +36,13 @@ const { t } = useI18n()
 
     <section class="installation-guide">
       <h2>{{ t('download.installationGuide.title') }}</h2>
-      
+
       <div class="installation-tabs">
         <button class="tab-button active">Windows</button>
         <button class="tab-button">macOS</button>
         <button class="tab-button">Linux</button>
       </div>
-      
+
       <div class="installation-content">
         <div class="code-block">
           <pre><code># {{ t('download.installationGuide.windows') }}
@@ -61,7 +56,7 @@ const { t } = useI18n()
     <section class="package-managers">
       <h2>{{ t('download.packageManagers.title') }}</h2>
       <p>{{ t('download.packageManagers.description') }}</p>
-      
+
       <div class="code-block">
         <pre><code># Homebrew (macOS)
 brew install valkyrie
@@ -77,7 +72,17 @@ cargo install valkyrie</code></pre>
       </div>
     </section>
   </div>
+  <Footer/>
 </template>
+
+<script lang="ts" setup>
+import {useI18n} from 'vue-i18n'
+import TopBar from "@/components/TopBar.vue";
+import Footer from "@/components/Footer.vue";
+
+const {t} = useI18n()
+</script>
+
 
 <style lang="scss" scoped>
 .download-page {
@@ -89,13 +94,13 @@ cargo install valkyrie</code></pre>
 .page-header {
   text-align: center;
   margin-bottom: 3rem;
-  
+
   h1 {
     font-size: 2.5rem;
     color: var(--vt-c-text-1);
     margin-bottom: 1rem;
   }
-  
+
   .subtitle {
     font-size: 1.25rem;
     color: var(--vt-c-text-2);
@@ -121,24 +126,24 @@ cargo install valkyrie</code></pre>
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
   text-align: center;
   transition: transform 0.3s ease, box-shadow 0.3s ease;
-  
+
   &:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
   }
-  
+
   h3 {
     font-size: 1.5rem;
     margin: 1rem 0;
     color: var(--vt-c-text-1);
   }
-  
+
   p {
     color: var(--vt-c-text-2);
     margin-bottom: 1.5rem;
     line-height: 1.6;
   }
-  
+
   .platform-icon {
     width: 80px;
     height: 80px;
@@ -149,7 +154,7 @@ cargo install valkyrie</code></pre>
     align-items: center;
     justify-content: center;
   }
-  
+
   .download-button {
     display: inline-block;
     background-color: var(--primary-color);
@@ -159,12 +164,12 @@ cargo install valkyrie</code></pre>
     text-decoration: none;
     font-weight: 500;
     transition: background-color 0.3s ease;
-    
+
     &:hover {
       background-color: darken(#3b82f6, 10%);
     }
   }
-  
+
   .version-info {
     margin-top: 1rem;
     font-size: 0.9rem;
@@ -179,13 +184,13 @@ cargo install valkyrie</code></pre>
   padding: 2rem;
   margin-bottom: 3rem;
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
-  
+
   h2 {
     font-size: 1.8rem;
     margin-bottom: 1.5rem;
     color: var(--vt-c-text-1);
   }
-  
+
   p {
     color: var(--vt-c-text-2);
     margin-bottom: 1.5rem;
@@ -197,7 +202,7 @@ cargo install valkyrie</code></pre>
   display: flex;
   margin-bottom: 1.5rem;
   border-bottom: 1px solid var(--vt-c-divider);
-  
+
   .tab-button {
     padding: 0.75rem 1.5rem;
     background: none;
@@ -207,12 +212,12 @@ cargo install valkyrie</code></pre>
     color: var(--vt-c-text-2);
     border-bottom: 2px solid transparent;
     transition: all 0.3s ease;
-    
+
     &.active {
       color: var(--primary-color);
       border-bottom-color: var(--primary-color);
     }
-    
+
     &:hover {
       color: var(--vt-c-text-1);
     }
@@ -225,10 +230,10 @@ cargo install valkyrie</code></pre>
   padding: 1.5rem;
   margin-bottom: 1.5rem;
   overflow-x: auto;
-  
+
   pre {
     margin: 0;
-    
+
     code {
       color: var(--vt-c-white);
       font-family: 'Fira Code', monospace;
@@ -242,10 +247,10 @@ cargo install valkyrie</code></pre>
   .download-grid {
     grid-template-columns: 1fr;
   }
-  
+
   .installation-tabs {
     flex-wrap: wrap;
-    
+
     .tab-button {
       flex: 1;
       min-width: 100px;
