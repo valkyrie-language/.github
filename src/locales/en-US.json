@@ -2,7 +2,11 @@
     "home": {
         "title": "Valkyrie Language",
         "subtitle": "An elegant, efficient, and safe programming language",
-        "getStarted": "Get Started"
+        "getStarted": "Get Started",
+        "show": {
+            "download": "Download",
+            "playground": "Playground"
+        }
     },
     "playground": {
         "title": "Online Playground",

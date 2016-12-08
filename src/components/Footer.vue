@@ -78,7 +78,7 @@ const {t} = useI18n()
           font-size: 0.9rem;
 
           &:hover {
-            color: var(--primary-color);
+            color: var(--vt-c-green);
           }
         }
       }
@@ -88,7 +88,7 @@ const {t} = useI18n()
   .footer-bottom {
     text-align: center;
     padding-top: 1rem;
-    border-top: 1px solid rgba(55, 128, 255, 0.1);
+    border-top: 1px solid var(--vt-c-divider-light);
 
     .copyright {
       color: var(--vt-c-text-2);

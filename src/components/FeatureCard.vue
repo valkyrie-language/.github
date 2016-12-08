@@ -21,15 +21,14 @@ const {t} = useI18n()
 <style lang="scss" scoped>
 .feature-cell {
   background: var(--vt-c-white);
-  border-radius: 12px;
+  border-radius: 8px;
   padding: 2rem;
   text-align: center;
-  box-shadow: 0 8px 20px rgba(55, 128, 255, 0.1);
-  transition: all 0.3s ease;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 
   &:hover {
     transform: translateY(-5px);
-    box-shadow: 0 12px 24px rgba(55, 128, 255, 0.15);
   }
 
   .feature-icon {
@@ -49,7 +48,7 @@ const {t} = useI18n()
   h3 {
     font-size: 1.5rem;
     margin-bottom: 1rem;
-    color: var(--primary-color);
+    color: var(--vt-c-text-1);
   }
 
   p {
@@ -61,15 +60,15 @@ const {t} = useI18n()
   .learn-more-btn {
     display: inline-block;
     padding: 0.5rem 1rem;
-    border: 1px solid var(--primary-color);
-    border-radius: 6px;
-    color: var(--primary-color);
+    border: 1px solid var(--vt-c-divider);
+    border-radius: 4px;
+    color: var(--vt-c-text-1);
     text-decoration: none;
     transition: all 0.3s ease;
 
     &:hover {
-      background: var(--primary-color);
-      color: white;
+      background: var(--vt-c-divider);
+      color: var(--vt-c-text-1);
     }
   }
 }

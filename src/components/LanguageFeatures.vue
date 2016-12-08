@@ -28,8 +28,7 @@ import {LANGUAGE_FEATURES} from "@/types/features.js";
     text-align: center;
     font-size: 2.5rem;
     margin-bottom: 3rem;
-    color: var(--primary-color);
-    font-weight: 600;
+    color: var(--vt-c-text-1);
   }
 
   .features-grid {

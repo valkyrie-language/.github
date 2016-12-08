@@ -287,14 +287,14 @@ onBeforeUnmount(() => {
     width: 10px;
     height: 10px;
     border-radius: 50%;
-    background-color: rgba(55, 128, 255, 0.3);
+    background: var(--vt-c-divider);
     border: none;
     padding: 0;
     cursor: pointer;
     transition: all 0.3s ease;
 
     &.active {
-      background-color: var(--primary-color);
+      background: var(--primary-color);
       transform: scale(1.2);
     }
   }
