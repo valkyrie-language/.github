@@ -22,10 +22,14 @@ const {t} = useI18n()
 .feature-cell {
   background: var(--vt-c-white);
   border-radius: 8px;
-  padding: 2rem;
+  padding: 1.5rem;
   text-align: center;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   transition: transform 0.3s ease;
+  
+  @media (min-width: 768px) {
+    padding: 2rem;
+  }
 
   &:hover {
     transform: translateY(-5px);

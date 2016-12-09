@@ -23,15 +23,20 @@ const {t} = useI18n()
 .application-card {
   background: var(--vt-c-white);
   border-radius: 12px;
-  padding: 2.5rem 2rem;
+  padding: 1.5rem 1rem;
   text-align: center;
   box-shadow: 0 8px 24px rgba(0, 0, 0, 0.12);
   transition: all 0.3s ease;
   height: 100%;
   display: flex;
   flex-direction: column;
-  width: 280px; /* 设置固定宽度 */
+  width: 250px; /* 移动端更小的宽度 */
   margin: 0 auto;
+  
+  @media (min-width: 768px) {
+    padding: 2.5rem 2rem;
+    width: 280px;
+  }
 
   &:hover {
     transform: translateY(-8px);

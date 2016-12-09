@@ -44,8 +44,12 @@ const {t} = useI18n()
 .footer {
   background-color: var(--vt-c-white);
   border-top: 1px solid var(--vt-c-divider-light);
-  padding: 2rem 1rem;
+  padding: 1.5rem 1rem;
   margin-top: auto;
+  
+  @media (min-width: 768px) {
+    padding: 2rem 1rem;
+  }
 
   .footer-content {
     max-width: 1200px;

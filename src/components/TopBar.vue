@@ -5,13 +5,18 @@
         <img :src="LogoIcon" alt="Logo" class="logo-icon"/>
         <span>{{ t('common.projectName') }}</span>
       </router-link>
-      <div class="nav-links">
-        <router-link to="/">{{ t('nav.home') }}</router-link>
-        <router-link to="/playground">{{ t('common.playground') }}</router-link>
-        <router-link to="/document">{{ t('common.document') }}</router-link>
-        <router-link to="/download">{{ t('common.download') }}</router-link>
-        <router-link to="/community">{{ t('common.community') }}</router-link>
+      <div class="nav-links" :class="{ 'active': menuOpen }">
+        <router-link to="/" @click="menuOpen = false">{{ t('nav.home') }}</router-link>
+        <router-link to="/playground" @click="menuOpen = false">{{ t('common.playground') }}</router-link>
+        <router-link to="/document" @click="menuOpen = false">{{ t('common.document') }}</router-link>
+        <router-link to="/download" @click="menuOpen = false">{{ t('common.download') }}</router-link>
+        <router-link to="/community" @click="menuOpen = false">{{ t('common.community') }}</router-link>
       </div>
+      <button class="menu-toggle" @click="toggleMenu">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
     </div>
     <div class="right">
       <LanguageSwitch/>
@@ -39,12 +44,18 @@
 
 <script setup lang="ts">
 import {useI18n} from 'vue-i18n'
+import {ref} from 'vue'
 import GithubIcon from '../assets/icon/github.svg'
 import DiscordIcon from '../assets/icon/discord.svg'
 import LogoIcon from '../assets/icon/logo.svg'
 import LanguageSwitch from './LanguageSwitch.vue'
 
 const {t} = useI18n()
+const menuOpen = ref(false)
+
+const toggleMenu = () => {
+  menuOpen.value = !menuOpen.value
+}
 </script>
 
 <style lang="scss" scoped>
@@ -52,15 +63,45 @@ const {t} = useI18n()
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1rem;
   background: linear-gradient(to right, var(--background-color), var(--surface-color));
   border-bottom: 2px solid var(--border-color);
   box-shadow: var(--box-shadow);
+  
+  @media (min-width: 768px) {
+    padding: 0.75rem 2rem;
+  }
 
   .left {
     display: flex;
     align-items: center;
     gap: 2rem;
+    
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      justify-content: space-between;
+      width: 30px;
+      height: 21px;
+      background: transparent;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      z-index: 10;
+      
+      @media (max-width: 767px) {
+        display: flex;
+      }
+      
+      span {
+        display: block;
+        height: 3px;
+        width: 100%;
+        background-color: var(--primary-color);
+        border-radius: 3px;
+        transition: all 0.3s ease;
+      }
+    }
 
     .logo {
       display: flex;
@@ -92,6 +133,28 @@ const {t} = useI18n()
     .nav-links {
       display: flex;
       gap: 1.5rem;
+      
+      @media (max-width: 767px) {
+        position: fixed;
+        top: 60px;
+        left: 0;
+        right: 0;
+        background: var(--background-color);
+        flex-direction: column;
+        padding: 1rem;
+        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        transform: translateY(-100%);
+        opacity: 0;
+        pointer-events: none;
+        transition: all 0.3s ease;
+        z-index: 100;
+        
+        &.active {
+          transform: translateY(0);
+          opacity: 1;
+          pointer-events: auto;
+        }
+      }
 
       a {
         color: var(--text-primary);
@@ -100,6 +163,17 @@ const {t} = useI18n()
         padding: 0.5rem 0;
         position: relative;
         transition: color var(--transition-duration);
+        
+        @media (max-width: 767px) {
+          padding: 0.75rem 0;
+          width: 100%;
+          text-align: center;
+          border-bottom: 1px solid var(--border-color);
+          
+          &:last-child {
+            border-bottom: none;
+          }
+        }
 
         &::after {
           content: '';
@@ -110,6 +184,10 @@ const {t} = useI18n()
           height: 2px;
           background: var(--primary-color);
           transition: width var(--transition-duration);
+          
+          @media (max-width: 767px) {
+            display: none;
+          }
         }
 
         &:hover, &.router-link-active {

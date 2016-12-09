@@ -1,41 +1,26 @@
 <template>
   <div class="home">
-    <TopBar/>
     <language-introduce/>
     <language-features/>
     <language-applications/>
-    <Footer/>
   </div>
 </template>
 <script lang="ts" setup>
-import {useI18n} from 'vue-i18n'
-import {useRouter} from 'vue-router'
 import LanguageIntroduce from '@/components/LanguageIntroduce.vue'
 import LanguageApplications from '@/components/LanguageApplications.vue'
-import TopBar from "@/components/TopBar.vue";
-import Footer from "@/components/Footer.vue";
 import LanguageFeatures from "@/components/LanguageFeatures.vue";
-
-const {t} = useI18n()
-const router = useRouter()
-
-const goToPlayground = () => {
-  router.push('/playground')
-}
-
-const valkyrieCodeExample = `
-micro() { }
-mezzo() { }
-macro() { }
-`
 </script>
 
 
 <style lang="scss" scoped>
 .home {
-  max-width: 1200px;
+  max-width: 1000px;
   margin: 0 auto;
-  padding: 2rem;
+  padding: 1rem;
+  
+  @media (min-width: 768px) {
+    padding: 1.5rem;
+  }
 }
 
 .features {

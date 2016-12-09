@@ -1,5 +1,5 @@
 <template>
-  <TopBar/>
+
   <div class="download-page">
     <header class="page-header">
       <h1>{{ t('download.title') }}</h1>
@@ -72,13 +72,12 @@ cargo install valkyrie</code></pre>
       </div>
     </section>
   </div>
-  <Footer/>
+
 </template>
 
 <script lang="ts" setup>
 import {useI18n} from 'vue-i18n'
-import TopBar from "@/components/TopBar.vue";
-import Footer from "@/components/Footer.vue";
+
 
 const {t} = useI18n()
 </script>

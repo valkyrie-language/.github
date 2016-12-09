@@ -81,11 +81,14 @@ onMounted(async () => {
   flex-direction: row;
   align-items: center;
   justify-content: space-between;
-  gap: 2rem;
-  padding: 2rem 0;
+  gap: 3rem;
+  padding: 4rem 0;
+  position: relative;
+  z-index: 1;
 
   @media (max-width: 768px) {
     flex-direction: column;
+    padding: 2rem 0;
   }
 }
 
@@ -93,21 +96,35 @@ onMounted(async () => {
   flex: 1;
 
   h1 {
-    font-size: 3rem;
-    color: var(--primary-color);
+    font-size: 2.5rem;
+    font-weight: 700;
+    background: linear-gradient(45deg, var(--primary-color), #ff6b6b);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
     margin-bottom: 1rem;
+    
+    @media (min-width: 768px) {
+      font-size: 4rem;
+      margin-bottom: 1.5rem;
+    }
   }
 
   .subtitle {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--text-color);
-    margin-bottom: 2rem;
+    margin-bottom: 1.5rem;
     line-height: 1.6;
+    opacity: 0.9;
+    
+    @media (min-width: 768px) {
+      font-size: 1.6rem;
+      margin-bottom: 2.5rem;
+    }
   }
 
   .buttons-container {
     display: flex;
-    gap: 1rem;
+    gap: 1.5rem;
     flex-wrap: wrap;
   }
 }
@@ -116,15 +133,22 @@ onMounted(async () => {
   background-color: var(--primary-color);
   color: var(--text-primary);
   border: none;
-  padding: 1rem 2rem;
-  font-size: 1.2rem;
-  border-radius: 8px;
+  padding: 0.8rem 1.5rem;
+  font-size: 1rem;
+  border-radius: 12px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  transition: all 0.3s ease;
   font-weight: bold;
+  box-shadow: 0 4px 15px rgba(255, 215, 0, 0.3);
+  
+  @media (min-width: 768px) {
+    
+  }
 
   &:hover {
-    background-color: darken(#FFD700, 10%);
+    background-color: color-mix(in srgb, var(--primary-color) 95%, black);
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(255, 215, 0, 0.4);
   }
 }
 

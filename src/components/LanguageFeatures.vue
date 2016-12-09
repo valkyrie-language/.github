@@ -20,22 +20,39 @@ import {LANGUAGE_FEATURES} from "@/types/features.js";
 
 <style lang="scss" scoped>
 .language-features {
-  padding: 4rem 0;
+  padding: 2rem 0;
   max-width: 1200px;
   margin: 0 auto;
+  
+  @media (min-width: 768px) {
+    padding: 4rem 0;
+  }
 
   h2 {
     text-align: center;
-    font-size: 2.5rem;
-    margin-bottom: 3rem;
+    font-size: 2rem;
+    margin-bottom: 2rem;
     color: var(--vt-c-text-1);
+    
+    @media (min-width: 768px) {
+      font-size: 2.5rem;
+      margin-bottom: 3rem;
+    }
   }
 
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
-    gap: 2rem;
-    padding: 0 2rem;
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 300px), 1fr));
+    gap: 1.5rem;
+    padding: 0 1rem;
+    max-width: 1200px;
+    margin: 0 auto;
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
+      gap: 2rem;
+      padding: 0 2rem;
+    }
   }
 }
 </style>

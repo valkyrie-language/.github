@@ -1,16 +1,18 @@
 <template>
   <div class="app">
+    <top-bar/>
     <router-view/>
+    <ButtonBar/>
   </div>
 </template>
 
 <script setup lang="ts">
-import TopBar from './components/TopBar.vue'
-import Footer from './components/Footer.vue'
 import './style/_variable.scss'
 import {useI18n} from 'vue-i18n'
-import { useRoute } from 'vue-router'
-import { computed } from 'vue'
+import {useRoute} from 'vue-router'
+import {computed} from 'vue'
+import TopBar from "@/components/TopBar.vue";
+import ButtonBar from "@/components/ButtonBar.vue";
 
 const route = useRoute()
 const isPlayground = computed(() => route.path === '/playground')
