@@ -174,6 +174,21 @@ const toggleOutput = () => {
 .editor-container {
   flex: 1;
   overflow: hidden;
+
+  @media (max-width: 768px) {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw !important;
+    height: 100vh !important;
+    z-index: 999;
+  }
+}
+
+.window-controls {
+  @media (max-width: 768px) {
+    display: none;
+  }
 }
 
 .output-panel {

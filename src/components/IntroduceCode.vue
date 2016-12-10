@@ -112,12 +112,20 @@ onUnmounted(() => {
 <style lang="scss" scoped>
 .code-preview {
   position: relative;
+  width: 100%;
+  padding: 0 1rem;
+  box-sizing: border-box;
+  
+  @media (max-width: 767px) {
+    padding: 0 0.5rem;
+  }
 
   .code-window {
     background-color: #ffffff;
     border-radius: 8px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
+    width: 100%;
   }
 
   .code-content-wrapper {

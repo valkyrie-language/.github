@@ -226,7 +226,7 @@ onBeforeUnmount(() => {
 }
 
 .carousel-slide {
-  min-width: 300px;
+  min-width: 100%;
   padding: 0 1rem;
   box-sizing: border-box;
   flex: 0 0 auto; /* 修改为不伸缩 */

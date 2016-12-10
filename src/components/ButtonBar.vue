@@ -55,17 +55,38 @@ const {t} = useI18n()
     max-width: 1200px;
     margin: 0 auto;
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-    gap: 2rem;
-    padding-bottom: 2rem;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+    padding-bottom: 1.5rem;
+    
+    @media (min-width: 576px) {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1.5rem;
+    }
+    
+    @media (min-width: 768px) {
+      grid-template-columns: repeat(3, 1fr);
+      gap: 2rem;
+      padding-bottom: 2rem;
+    }
   }
 
   .footer-section {
+    text-align: center;
+    
+    @media (min-width: 768px) {
+      text-align: left;
+    }
+    
     h3 {
       color: var(--vt-c-text-1);
       font-size: 1rem;
       font-weight: 600;
-      margin-bottom: 1rem;
+      margin-bottom: 0.75rem;
+      
+      @media (min-width: 768px) {
+        margin-bottom: 1rem;
+      }
     }
 
     ul {
