@@ -1,5 +1,4 @@
 <template>
-
   <div class="download-page">
     <header class="page-header">
       <h1>{{ t('tools.title') }}</h1>
@@ -9,102 +8,37 @@
     <section class="tools-section">
       <div class="tools-grid">
         <ToolCard
-          name="VS Code"
-          :description="t('tools.vsCode.description')"
-          icon="/src/assets/icon/vscode.svg"
-          link="https://marketplace.visualstudio.com/items?itemName=valkyrie.valkyrie-vscode"
-        />
-        <ToolCard
-          name="Vim/NeoVim"
-          :description="t('tools.vim.description')"
-          icon="/src/assets/icon/vim.svg"
-          link="https://github.com/valkyrie-language/valkyrie-vim"
-        />
-        <ToolCard
-          name="RustRover"
-          :description="t('tools.rustRover.description')"
-          icon="/src/assets/icon/rustrover.svg"
-          link="https://www.jetbrains.com/rust/"
-        />
-        <ToolCard
-          name="Helix"
-          :description="t('tools.helix.description')"
-          icon="/src/assets/icon/helix.svg"
-          link="https://helix-editor.com/"
-        />
-        <ToolCard
-          name="Emacs"
-          :description="t('tools.emacs.description')"
-          icon="/src/assets/icon/emacs.svg"
-          link="https://www.gnu.org/software/emacs/"
-        />
-        <ToolCard
-          name="Sublime Text"
-          :description="t('tools.sublime.description')"
-          icon="/src/assets/icon/sublime.svg"
-          link="https://www.sublimetext.com/"
-        />
-        <ToolCard
-          name="Visual Studio"
-          :description="t('tools.visualStudio.description')"
-          icon="/src/assets/icon/visual-studio.svg"
-          link="https://visualstudio.microsoft.com/"
-        />
-        <ToolCard
-          name="Eclipse"
-          :description="t('tools.eclipse.description')"
-          icon="/src/assets/icon/eclipse.svg"
-          link="https://www.eclipse.org/"
+          v-for="tool in LANGUAGE_TOOLS"
+          :key="tool.name"
+          :name="tool.name"
+          :description="t(tool.descriptionKey)"
+          :icon="tool.icon"
+          :link="tool.link"
         />
       </div>
     </section>
 
     <section class="installation-guide">
       <h2>{{ t('download.installationGuide.title') }}</h2>
-
-      <div class="installation-tabs">
-        <button class="tab-button active">Windows</button>
-        <button class="tab-button">macOS</button>
-        <button class="tab-button">Linux</button>
-      </div>
-
-      <div class="installation-content">
-        <div class="code-block">
-          <pre><code># {{ t('download.installationGuide.windows') }}
-1. {{ t('download.installationGuide.downloadExecutable') }}
-2. {{ t('download.installationGuide.runInstaller') }}
-3. {{ t('download.installationGuide.followPrompts') }}</code></pre>
-        </div>
-      </div>
-    </section>
-
-    <section class="package-managers">
-      <h2>{{ t('download.packageManagers.title') }}</h2>
-      <p>{{ t('download.packageManagers.description') }}</p>
-
-      <div class="code-block">
-        <pre><code># Homebrew (macOS)
-brew install valkyrie
-
-# Chocolatey (Windows)
-choco install valkyrie
-
-# APT (Debian/Ubuntu)
-apt-get install valkyrie
-
-# Cargo
-cargo install valkyrie</code></pre>
-      </div>
+      <InstallCard
+        v-for="guide in installGuides"
+        :key="guide.platform"
+        :platform="guide.platform"
+        :steps="guide.steps"
+        :package-managers="guide.packageManagers"
+      />
     </section>
   </div>
-
 </template>
 
 <script lang="ts" setup>
-import { useI18n } from 'vue-i18n'
+import {useI18n} from 'vue-i18n'
 import ToolCard from '../components/ToolCard.vue'
+import InstallCard from '../components/InstallCard.vue'
+import {getInstallGuides, LANGUAGE_TOOLS} from '../types/tools'
 
-const { t } = useI18n()
+const {t} = useI18n()
+const installGuides = getInstallGuides
 </script>
 
 
