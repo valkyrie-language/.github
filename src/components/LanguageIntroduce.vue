@@ -34,10 +34,11 @@
 <script setup lang="ts">
 import {useI18n} from 'vue-i18n'
 import {onMounted, ref} from 'vue'
-import {useRouter} from 'vue-router'
+import {openPlayground} from '../utils/playground'
 import ParticleBackground from './ParticleBackground.vue'
 import IntroduceCode from './IntroduceCode.vue'
 import PlayIcon from '../assets/icon/play.svg'
+import {useRouter} from "vue-router";
 
 const {t} = useI18n()
 const router = useRouter()
@@ -47,7 +48,7 @@ const jumpDownload = () => {
 }
 
 const jumpPlayground = () => {
-  window.open('https://playground.valkyrie-lang.org', '_blank')
+  openPlayground()
 }
 
 // 代码示例轮播
@@ -65,8 +66,7 @@ const loadExamples = async () => {
 // 复制到 playground
 const copyToPlayground = () => {
   const currentExample = examples.value[0]
-  localStorage.setItem('playground-code', currentExample)
-  router.push('/playground')
+  openPlayground(currentExample)
 }
 
 onMounted(async () => {
