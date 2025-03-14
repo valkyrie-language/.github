@@ -23,7 +23,7 @@ import {LANGUAGE_FEATURES} from "@/types/features.js";
   padding: 2rem 0;
   max-width: 1200px;
   margin: 0 auto;
-  
+
   @media (min-width: 768px) {
     padding: 4rem 0;
   }
@@ -33,7 +33,7 @@ import {LANGUAGE_FEATURES} from "@/types/features.js";
     font-size: 2rem;
     margin-bottom: 2rem;
     color: var(--vt-c-text-1);
-    
+
     @media (min-width: 768px) {
       font-size: 2.5rem;
       margin-bottom: 3rem;
@@ -47,7 +47,7 @@ import {LANGUAGE_FEATURES} from "@/types/features.js";
     padding: 0 1rem;
     max-width: 1200px;
     margin: 0 auto;
-    
+
     @media (min-width: 768px) {
       grid-template-columns: repeat(auto-fit, minmax(min(100%, 350px), 1fr));
       gap: 2rem;
