@@ -7,7 +7,7 @@
       </router-link>
       <div class="nav-links" :class="{ 'active': menuOpen }">
         <router-link to="/" @click="menuOpen = false">{{ t('nav.home') }}</router-link>
-        <router-link to="/playground" @click="menuOpen = false">{{ t('common.playground') }}</router-link>
+        <a @click="handlePlaygroundClick" class="nav-link">{{ t('common.playground') }}</a>
         <router-link to="/document" @click="menuOpen = false">{{ t('common.document') }}</router-link>
         <router-link to="/download" @click="menuOpen = false">{{ t('common.download') }}</router-link>
         <router-link to="/community" @click="menuOpen = false">{{ t('common.community') }}</router-link>
@@ -49,12 +49,19 @@ import GithubIcon from '../assets/icon/github.svg'
 import DiscordIcon from '../assets/icon/discord.svg'
 import LogoIcon from '../assets/icon/logo.svg'
 import LanguageSwitch from './LanguageSwitch.vue'
+import {openPlayground} from '../utils/playground'
 
 const {t} = useI18n()
 const menuOpen = ref(false)
 
 const toggleMenu = () => {
   menuOpen.value = !menuOpen.value
+}
+
+const handlePlaygroundClick = (event: Event) => {
+  event.preventDefault()
+  menuOpen.value = false
+  openPlayground()
 }
 </script>
 
@@ -67,7 +74,7 @@ const toggleMenu = () => {
   background: linear-gradient(to right, var(--background-color), var(--surface-color));
   border-bottom: 2px solid var(--border-color);
   box-shadow: var(--box-shadow);
-  
+
   @media (min-width: 768px) {
     padding: 0.75rem 2rem;
   }
@@ -76,7 +83,7 @@ const toggleMenu = () => {
     display: flex;
     align-items: center;
     gap: 2rem;
-    
+
     .menu-toggle {
       display: none;
       flex-direction: column;
@@ -88,11 +95,11 @@ const toggleMenu = () => {
       cursor: pointer;
       padding: 0;
       z-index: 10;
-      
+
       @media (max-width: 767px) {
         display: flex;
       }
-      
+
       span {
         display: block;
         height: 3px;
@@ -133,7 +140,7 @@ const toggleMenu = () => {
     .nav-links {
       display: flex;
       gap: 1.5rem;
-      
+
       @media (max-width: 767px) {
         position: fixed;
         top: 60px;
@@ -148,7 +155,7 @@ const toggleMenu = () => {
         pointer-events: none;
         transition: all 0.3s ease;
         z-index: 100;
-        
+
         &.active {
           transform: translateY(0);
           opacity: 1;
@@ -163,13 +170,13 @@ const toggleMenu = () => {
         padding: 0.5rem 0;
         position: relative;
         transition: color var(--transition-duration);
-        
+
         @media (max-width: 767px) {
           padding: 0.75rem 0;
           width: 100%;
           text-align: center;
           border-bottom: 1px solid var(--border-color);
-          
+
           &:last-child {
             border-bottom: none;
           }
@@ -184,7 +191,7 @@ const toggleMenu = () => {
           height: 2px;
           background: var(--primary-color);
           transition: width var(--transition-duration);
-          
+
           @media (max-width: 767px) {
             display: none;
           }
